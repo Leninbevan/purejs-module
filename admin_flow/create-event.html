@@ -1,0 +1,745 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/event.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="eventdetails-bgimage">
+        <img src="images/Img.png" alt="image not found" class="eventdetails-pagetitleimage" />
+        <div class="eventdetails-backpagecontainer">
+            <div><img src="images/leftarrow.png" alt="arrow" class="eventdetails-layerimage" /> </div>
+            <div class="eventdetails-pagetitle">Create New Event</div>
+        </div>
+    </div>
+    <div class="container-fluid eventdetails-container g-0">
+        <div class="eventdetails-formdetails">
+            Please fill in the below details to proceed with creating a new event
+        </div>
+
+        <div class="eventdetails-switchbar d-flex g-0">
+            <div class="eventdetails-switchtitle eventdetails-activebottom" onclick="switchActive(0)">1. EVENT DETAILS
+                <span></span>
+            </div>
+            <div class="eventdetails-switchtitle" onclick="switchActive(1)">2. EVENT SCHEDULE <span></span></div>
+            <div class="eventdetails-switchtitle" onclick="switchActive(2)">3. ADD SALES AGENT <span></span></div>
+        </div>
+
+        <div>
+            <form id="eventdetailsform" class="eventdetails-formcontainer createnewevent-form" novalidate>
+                <div class="eventdetails-titlefieldbox d-flex flex-column">
+                    <div class="eventdetails-titleevent d-flex flex-column">
+                        <div class="eventdetails-titleinput">
+                            <div>
+                                <label for="eventtitle" class="form-label"> TITLE OF EVENT <span
+                                        class="inputfield-required">*</span></label>
+                                <input type="text" class="form-control eventdetails-eventnameinput"
+                                    value="Dubai Property Exhibition" id="eventtitle" required>
+                            </div>
+                        </div>
+
+                        <div class="eventdetails-projectbanner">
+                            <div>
+                                <label for="projectbanner" class="form-label">UPLOAD PROJECT BANNER IMAGES <span
+                                        class="inputfield-required">*</span></label>
+                                <input class="form-control custom-file-input" type="file" id="projectbanner" multiple
+                                    required>
+                                <div class="eventdetails-uploadimagefield">Note: You can upload a maximum of 3 images
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eventdetails-eventlocation">
+                            <label for="eventlocation" class="form-label">EVENT LOCATION <span
+                                    class="inputfield-required">*</span></label>
+                            <div class="input-group eventdetails-locationsubmit">
+                                <input type="text" id="eventlocation" class="form-control"
+                                    placeholder="Wasl Experience Centre" aria-label="Recipient's username"
+                                    aria-describedby="button-addon2" required>
+                                <button type="button" class="eventdetails-locationbutton"> <img
+                                        src="images/map-icon.png" alt="map" class="eventdetails-locationicon" />Choose
+                                    from Google Maps </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="eventdetails-eventdescription">
+                        <div class="mb-2">
+                            <label for="eventdescription" class="form-label">EVENT DESCRIPTION <span
+                                    class="inputfield-required">*</span></label>
+                            <textarea class="form-control eventdetails-eventdescriptiontext" id="eventdescription"
+                                placeholder="Please enter a brief description about the event here." rows="3"
+                                required></textarea>
+                        </div>
+                    </div>
+                    <div class="eventdetails-pointstonote">
+                        <label for="keypoints" class="form-label">POINTS TO NOTE <span
+                                class="inputfield-required">*</span></label>
+                        <div class="mb-3 eventdetails-multiplefields d-flex flex-column" id="pointsContainer">
+                            <input type="text" class="form-control eventdetails-addkeypoint" id="keypoints"
+                                placeholder="Enter your point here" required>
+                        </div>
+                        <div class="eventdetails-buttoncontainer">
+                            <button type="button" class="btn btn-outline-secondary" onclick="addNewPoint()">+ Add New
+                                Point</button>
+                            <button type="button" class="btn btn-outline-secondary eventdetails-deletepoint"
+                                onclick="deleteLastPoint()" id="deleteButton">Delete Last Point</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="eventdetails-reserveagreement">
+                    <div class="eventdetails-agreementcontainer">
+                        <div class="eventdetails-reservationtitle">
+                            RESERVATION AGREEMENT <span class="inputfield-required">*</span>
+                        </div>
+                        <div class="eventdetails-reservationselectfield d-flex">
+                            <div class="eventdetails-templatetype">
+                                <label for="templatetype" class="form-label">SELECT TEMPLATE TYPE <span
+                                        class="inputfield-required">*</span></label>
+                                <select class="form-select eventdetails-templateselect" id="templatetype"
+                                    aria-label="Default select example" required>
+                                    <option selected>Unit</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="eventdetails-uploadtype">
+                                <label for="formuploadtemplate" class="form-label">UPLOAD TEMPLATE <span
+                                        class="inputfield-required">*</span></label>
+                                <input class="form-control custom-file-input" type="file" id="formuploadtemplate"
+                                    multiple required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-keyfeatures d-flex flex-column">
+                    <div class="eventdetails-featuresfield d-flex flex-column">
+                        <div class="eventdetails-featurestitle">
+                            ENTER KEY FEATURES
+                        </div>
+                        <div class="eventdetails-roomfield">
+                            <div class="eventdetails-roomrange selectfieldarea">
+                                <div class="eventdetails-selectfield contentlabel">
+                                    <input class="form-check-input eventdetails-checkinput" type="checkbox" value=""
+                                        id="flexCheckChecked" checked>
+                                </div>
+                                <div class="eventdetails-minmaxfield rangearea rangeinputfield">
+                                    <div class="eventdetails-fieldlabel">ROOM RANGE <span
+                                            class="inputfield-required">*</span></div>
+                                    <div class="eventdetails-contentarea">
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Min Rooms</div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                        <div class="eventdetails">to</div>
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Max Rooms</div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eventdetails-unittypes selectfieldarea">
+                                <div class="eventdetails contentlabel">
+                                    <input class="form-check-input eventdetails-checkinput" type="checkbox" value=""
+                                        id="flexCheckChecked" checked>
+                                </div>
+                                <div class="eventdetails-unittypes rangearea rangeinputfield">
+                                    <label class="eventdetails-fieldlabel" for="unittypes">UNIT TYPES
+                                        <span class="inputfield-required">*</span></label>
+                                    <div class="eventdetails-contentarea">
+                                        <select class="form-select eventdetails-multiunitfields" id="unittypes"
+                                            aria-label="Default select example" required>
+                                            <option selected>Apartments,villas,buildings,</option>
+                                            <option value="1">Flat</option>
+                                            <option value="2">Rental</option>
+                                            <option value="3">Home</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eventdetails-suitfield">
+                            <div class="eventdetails-roomrange selectfieldarea">
+                                <div class="eventdetails-selectfield contentlabel">
+                                    <input class="form-check-input eventdetails-checkinput" type="checkbox" value=""
+                                        id="flexCheckChecked" checked>
+                                </div>
+                                <div class="eventdetails-minmaxfield rangearea rangeinputfield">
+                                    <div class="eventdetails-fieldlabel">SUIT AREA RANGE <span
+                                            class="inputfield-required">*</span></div>
+                                    <div class="eventdetails-contentarea">
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Min </div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                        <div class="eventdetails">to</div>
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Max </div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eventdetails-unittypes selectfieldarea">
+                                <div class="eventdetails contentlabel">
+                                    <input class="form-check-input eventdetails-checkinput" type="checkbox" value=""
+                                        id="flexCheckChecked" checked>
+                                </div>
+                                <div class="eventdetails-unittypes rangearea rangeinputfield">
+                                    <div class="eventdetails-fieldlabel">TOTAL AREA RANGE <span
+                                            class="inputfield-required">*</span></div>
+                                    <div class="eventdetails-contentarea">
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Min Rooms</div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                        <div class="eventdetails">to</div>
+                                        <div class="eventdetails d-flex flex-column">
+                                            <div class="toplabel">Max Rooms</div>
+                                            <div class="bottomlabel"><input type="text" class="form-control rangedata"
+                                                    value="Enter" required></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eventdetails-specifyfield"></div>
+                    <div class="eventdetails-paymentfield d-flex flex-column">
+                        <div class="eventdetails-paymentlabel">SELECT KEY AMENITIES <span
+                                class="inputfield-required">*</span></div>
+                        <div class="eventdetails-paymentmultiselect">
+                            <label class="eventdetails-fieldlabel mb-1" for="unittypes">AMENITIES
+                                <span class="inputfield-required">*</span></label>
+                            <div class="dropdown">
+
+                                <div id="dropdown-content" class="dropdown-content">
+                                    <input type="text" id="filterInput" required onfocus="showDropdown()"
+                                        onblur="hideDropdown()" onkeyup="filterFunction()" placeholder="Search..">
+                                    <div class="optionsfield" id="optionsfield">
+                                        <label>Spa <input class="form-check-input option" type="checkbox" value="Spa"
+                                                onclick="updateSelected()"> </label>
+                                        <label>BBQ <input class="form-check-input option" type="checkbox" value="BBQ"
+                                                onclick="updateSelected()"> </label>
+                                        <label> Football court <input class="form-check-input option" type="checkbox"
+                                                value="Football Court" onclick="updateSelected()"> </label>
+                                        <label> Badminton <input class="form-check-input option" type="checkbox"
+                                                value="Badminton" onclick="updateSelected()"> </label>
+                                        <label> Theatre <input class="form-check-input option" type="checkbox"
+                                                value="Theatre" onclick="updateSelected()"></label>
+                                        <label> Mall <input class="form-check-input option" type="checkbox" value="Mall"
+                                                onclick="updateSelected()"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eventdetails-paymentoptions">
+                            <div id="selected-options" class="selected-options">
+                                <!-- <div id="removedSelectedValue" class="remove-icon">X</div>  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="eventdetails-paymentmethod d-flex flex-column">
+                    <div class="eventdetails-eventpayment d-flex flex-column">
+                        <div class="eventdetails-paymentlabel">
+                            PAYMENT METHODS FOR THE EVENT<span class="inputfield-required">*</span>
+                        </div>
+                        <div class="eventdetails-paymentswitchfield d-flex">
+                            <div class="eventdetails-switcharea">
+                                <div class="form-check form-switch">
+                                    Select all <input class="form-check-input" type="checkbox" role="switch"
+                                        id="paymentAllToggle">
+                                </div>
+
+                            </div>
+                            <div class="eventdetails-switcharea">
+                                <div class="form-check form-switch">
+                                    Pos <input class="form-check-input eventsdetails-paymentswitch" type="checkbox"
+                                        role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Credit / Debit card <input class="form-check-input eventsdetails-paymentswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Cash <input class="form-check-input eventsdetails-paymentswitch" type="checkbox"
+                                        role="switch" id="flexSwitchCheck">
+                                </div>
+                            </div>
+                            <div class="eventdetails-switcharea">
+                                <div class="form-check form-switch">
+                                    QR Code scanner <input class="form-check-input eventsdetails-paymentswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    E-Services through Wasl App <input
+                                        class="form-check-input eventsdetails-paymentswitch" type="checkbox"
+                                        role="switch" id="flexSwitchCheck">
+                                </div>
+                            </div>
+                            <div class="eventdetails-switcharea">
+                                <div class="form-check form-switch">
+                                    Quick pay <input class="form-check-input eventsdetails-paymentswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Check <input class="form-check-input eventsdetails-paymentswitch" type="checkbox"
+                                        role="switch" id="flexSwitchCheck">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eventdetails-signaturemethod d-flex flex-column">
+                        <div class="eventdetails-signaturelabel">
+                            SIGNATURE METHODS FOR THE RESERVATION AGREEMENT<span class="inputfield-required">*</span>
+                        </div>
+                        <div class="eventdetails-signatureswitchfield">
+                            <div class="eventdetails-switcharea d-flex">
+                                <div class="form-check form-switch">
+                                    Select All <input class="form-check-input" type="checkbox" role="switch"
+                                        onclick="selectAllSignature(this)" id="signatureAllToggle">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Sign Via Tablet <input class="form-check-input  eventdetails-signatureswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Sign On DocuSign <input class="form-check-input eventdetails-signatureswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                                <div class="form-check form-switch">
+                                    Sign on UAE Pass <input class="form-check-input eventdetails-signatureswitch"
+                                        type="checkbox" role="switch" id="flexSwitchCheck">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-submitform">
+                    <button type="submit" class="eventdetails-submitbutton"> Next </button>
+                </div>
+
+            </form> 
+
+
+            <form id="eventscheduleform" class="eventdetails-scheduleform createnewevent-form">
+
+                <div class="eventContainer">
+                    <div class="row form-eventdetails mt-4 " id="">
+                          <div class="eventschedule-titlecontainer d-flex flex-column">
+                              <div class="eventschedule-filldetails"> Fill in the details </div>
+                              <div class="eventschedule--regiterdetails"> Please fill the registration details and create the time slots that you want for the event. </div>
+                          </div>
+                          <div class="form-group col-sm-4 flex-column d-flex mb-4"> 
+                            <label for="PersonAllowed" class="form-label">TOTAL REGISTRATION ALLOWED FOR THE EVENT <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="text" class="form-control PersonAllowed" aria-label=""  value="500" id="">
+                             <span class="icon eventschedule-inputicon"> <img src="images/user-icon.png" class="iconimg" alt="user" /> </span>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-4 flex-column d-flex  mb-4"> 
+                              <label for="RegistrationStart" class="form-label">REGISTRATION START DATE & TIME <span class="required">*</span></label>
+                              <div class="eventschedule-inputcontainer">
+                                <input type="datetime-local"  class="form-control eventschedule-uniquedatepicker" value="2024-04-09T10:30" id="RegistrationStart" aria-describedby=""  value="16/09/2024  10:00 GST">
+                              </div>
+                          </div>
+      
+      
+                          <div class="form-group col-sm-4 flex-column d-flex  mb-4"> 
+                            <label for="RegistrationEnd" class="form-label">REGISTRATION END DATE & TIME <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="datetime-local" class="form-control eventschedule-uniquedatepicker" value="2024-05-29T21:30" id="RegistrationEnd" aria-describedby=""  value="26/09/2024   23:59 GST">
+                          </div>
+                          </div>
+      
+      
+                          <div class="form-group col-sm-4 flex-column d-flex mb-4"> 
+                            <label for="PersonAllowed" class="form-label">ADD PREFIX TO TOKEN NUMBER <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="text" class="form-control PersonAllowed" aria-label=""  value="PR" id="">
+                             <div class="eventschedule-helpertext"> Note: The Token no. will start from 0001 in an sequential manner. </div>
+                            </div>
+                            </div>
+      
+                          <div class="form-group col-sm-4 flex-column d-flex"> 
+                            <label for="CheckinTime" class="form-label">CHECK-IN TO EVENT ALLOWED PRIOR TO <span class="required">*</span></label>
+                            <select class="form-select form-control" id="CheckinTime"
+                            aria-label="Default select example">
+                            <option selected>30 min </option>
+                            <option value="1"> 10 min </option>
+                            <option value="2"> 20 min </option>
+                            <option value="3"> 45 min </option>
+                        </select>
+                          </div>
+                          <div class="form-group col-sm-4 flex-column d-flex"> 
+                            <label for="eventDate" class="form-label">DATE OF THE EVENT <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="date" value="2024-06-08" class="form-control eventschedule-uniquedatepicker" id="eventDate" aria-describedby="" value="16/09/2024">
+                          </div>
+                          </div>
+      
+                          <div class="form-group col-sm-4 flex-column d-flex mb-4"> 
+                            <label for="PersonAllowed" class="form-label">EVENT START TIME <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="time" class="form-control PersonAllowed eventschedule-specifictime" aria-label="" value="07:30:00"   id="">
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-4 flex-column d-flex mb-4"> 
+                            <label for="PersonAllowed" class="form-label">EVENT END TIME <span class="required">*</span></label>
+                            <div class="eventschedule-inputcontainer">
+                            <input type="time" class="form-control PersonAllowed eventschedule-specifictime" aria-label="" value="10:09:00"  id="">
+                            </div>
+                          </div>
+                          <div class="mt-3"><hr></div>
+                          <div class="form-group col-sm-4 flex-column d-flex"> 
+                            <div class="form-check form-switch">
+                              <input class="form-check-input" type="checkbox" role="switch" id="BypassingTimeslot" >
+                              <span> By-passing of Time Slot for Check-In</span>
+                            </div>
+                          </div>
+      
+                          <div class="form-group col-sm-4 flex-column d-flex"> 
+                            <div class="form-check form-switch">
+                              <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" >
+                              <span> Allow Walk-in</span>
+                            </div>
+                          </div>
+      
+                    </div> 
+                  </div>
+
+                  <div class="eventschedule-submitform">
+                    <button type="submit" class="eventschedule-submitbutton"> Proceed </button>
+                </div>
+
+            </form>
+
+
+            <form id="eventaddagentform" class="eventdetails-addagentform createnewevent-form">
+                <div class="eventContainer">
+                    <div class="row form-eventdetails mt-4 mb-3 g-0"  id="">
+                        <div class="reservationselectfield form-group col-sm-4 flex-column d-flex"> 
+      
+                            <div class="templatetype">
+                                <label for="templatetype" class="form-label"><h5><strong>Assign Receptionist:</strong></h5></label>
+                                <div class="mb-2"> </div> 
+                                <table class="table table-responsive sales-agent" id="EventSalesAgent">
+                                    <thead>
+                                      <tr>
+                                        <th>Sr#</th>
+                                        <th>Select Sales Agent</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr>
+                                              <td> 
+                                              <input type="text" class="form-control" id="" aria-describedby="" value="1" disabled>
+                                              </td>
+                                              <td>
+                                              <select class="form-select templateselect mb-3" id="templatetype">
+                                                aria-label="Default select example">
+                                                <option selected>Ayesha Alramsi</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                              </select>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                            <td> 
+                                            <input type="text" class="form-control text-left" id="" aria-describedby="" value="2" disabled>
+                                            </td>
+                                            <td>
+                                            <select class="form-select templateselect mb-3" id="templatetype">
+                                              aria-label="Default select example">
+                                              <option selected>Ayesha Alramsi</option>
+                                              <option value="1">One</option>
+                                              <option value="2">Two</option>
+                                              <option value="3">Three</option>
+                                            </select>
+                                            
+                                            </td>
+                                            <td> <span><img src="images/Bin.png"></span></td>
+      
+                                          </tr>
+                                          <tr>
+                                          <td> 
+                                          <input type="text" class="form-control" id="" aria-describedby="" value="3" disabled>
+                                          </td>
+                                          <td>
+                                          <select class="form-select templateselect mb-3" id="templatetype">
+                                            aria-label="Default select example">
+                                            <option selected>Ayesha Alramsi</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                          </select>
+                                          </td>
+                                          <td> <span><img src="images/Bin.png"></span></td>
+                                          </tr>
+                                          <tr>
+                                          <td> 
+                                          <input type="text" class="form-control" id="" aria-describedby="" value="4" disabled>
+                                          </td>
+                                          <td>
+                                          <select class="form-select templateselect mb-3" id="templatetype">
+                                          aria-label="Default select example">
+                                          <option selected>Ayesha Alramsi</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                          </select>
+                                          </td>
+                                          <td> <span><img src="images/Bin.png"></span></td>
+                                          </tr>
+                                          <tr>
+                                          <td> 
+                                          <input type="text" class="form-control" id="" aria-describedby="" value="5" disabled>
+                                          </td>
+                                          <td>
+                                          <select class="form-select templateselect mb-3" id="templatetype">
+                                          aria-label="Default select example">
+                                          <option selected>Ayesha Alramsi</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                          </select>
+                                          </td>
+                                          <td> <span><img src="images/Bin.png"></span></td>
+                                          </tr>
+                                     </tbody>
+                                     </table> 
+                              </div>
+                           </div>
+                        <div><hr></div>
+                        <div class="mb-3" id="">
+                          <div class="reservationselectfield"> 
+                        <div class="templatetype">
+                          <label class="form-label"><h5><strong>Add Kiosks/Desks and Sales Agents:</strong></h5></label>
+                          <div class="mb-2"> </div> 
+                             <table class="table table-responsive sales-agent" id="EventAddSalesAgent">
+                                <thead>
+                                    <tr>
+                                      <th>Kiosk/Desk </th>
+                                      <th>Select Sales Agent</th>
+                                      <th>Max. Units to Hold</th>
+                                      <th>Exceptional</th>
+                                      <th> QR Scanning </th>
+                                    </tr>
+                                </thead>
+                               <tbody>
+                                    <tr>
+                                        <td> 
+                                        <input type="text" class="form-control" id="" aria-describedby="" value="Desk A" disabled>
+                                        </td>
+                                        <td>
+                                        <select class="form-select templateselect salesAgent mb-3" id="templatetype">
+                                          <option selected>Ayesha Alramsi</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                        </td>
+                                        <td>
+                                          <select class="form-select templateselect mb-3" id="templatetype">
+                                            <option selected>4</option>
+                                            <option value="1">3</option>
+                                            <option value="2">2</option>
+                                            <option value="3">1</option>
+                                          </select>
+                                        </td>
+                                        <td>
+                                          <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                          </div>
+                                        </td>
+                                        <td> <span><img src="images/Bin.png"></span></td>
+      
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" class="form-control" id="" aria-describedby="" value="Desk B" disabled></td>
+                                      <td>
+                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                       
+                                        <option selected>Ayesha Alramsi</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                      </td>
+                                      <td>
+                                        <select class="form-select templateselect mb-3" id="templatetype">
+                                          <option selected>4</option>
+                                          <option value="1">3</option>
+                                          <option value="2">2</option>
+                                          <option value="3">1</option>
+                                        </select>
+                                      </td>
+                                     
+                                      <td>
+                                        <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                        </div>
+                                      </td>
+                                      <td> <span><img src="images/Bin.png"></span></td>
+                                    </tr>
+                                    <tr>
+                                    <td> 
+                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk C" disabled>
+                                    </td>
+                                    <td>
+                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                      aria-label="Default select example">
+                                      <option selected>Ayesha Alramsi</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                    </td>
+                                    <td>
+                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                        <option selected>4</option>
+                                        <option value="1">3</option>
+                                        <option value="2">2</option>
+                                        <option value="3">1</option>
+                                      </select>
+                                    </td>
+                                   
+                                    <td>
+                                      <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                      </div>
+                                    </td>
+                                    <td> <span><img src="images/Bin.png"></span></td>
+                                    </tr>
+                                    <tr>
+                                    <td> 
+                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk D" disabled>
+                                    </td>
+                                    <td>
+                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                    aria-label="Default select example">
+                                    <option selected>Ayesha Alramsi</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    </select>
+                                    </td>
+                                    <td>
+                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                        <option selected>4</option>
+                                        <option value="1">3</option>
+                                        <option value="2">2</option>
+                                        <option value="3">1</option>
+                                      </select>
+                                    </td>
+                                    
+                                    <td>
+                                      <div class="form-check form-switch">
+                                         <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                      </div>
+                                    </td>
+                                    <td> <span><img src="images/Bin.png"></span></td>
+                                    </tr>
+                                    <tr>
+                                    <td> 
+                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk E" disabled>
+                                    </td>
+                                    <td>
+                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                   
+                                    <option selected>Ayesha Alramsi</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    </select>
+                                    </td>
+                                    <td>
+                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                        <option selected>4</option>
+                                        <option value="1">3</option>
+                                        <option value="2">2</option>
+                                        <option value="3">1</option>
+                                      </select>
+                                    </td>
+                                    
+                                    <td>
+                                      <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                      </div>
+                                    </td>
+                                    <td> <span><img src="images/Bin.png"></span></td>
+                                    
+                                    </tr>
+                               </tbody>
+                              </table> 
+      
+                              <div class="eventdetails-buttoncontainer">
+                                <button type="button" class="btn btn-outline-secondary" onclick="addNewAgent()">+ Add Sales Agent
+                                    </button>
+                                <button type="button" class="btn btn-outline-danger" onclick="deleteLastPoint()" id="deleteSalesButton" style="display: none;">Delete Sales Agent</button>
+                            </div>
+                         </div>
+                      </div>
+                    </div>
+                 </div>
+                          
+      
+                    </div> 
+
+                    <div class="addagentform-submitform">
+                        <a href="#"  class="addagentform-submitbutton" data-modal-target="#Adduser" id="Adduser"> Create Event </>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="modal" id="Addusermodal">
+        <div class="modal-content modal_dialog">
+          <!-- <span class="close-button">&times;</span> -->
+         <div class="header-modal">
+          <h2> <img src="images/timericon.png" class="model-timericon" alt="time" /> Confirmation</h2> 
+         </div>
+         <div>
+            Please confirm if you want to confirm this event.
+         </div>
+         <div>
+            Note: Once the Event is created, you can manage it from the ‘Events’ tab.
+         </div>
+         <div class="modal-buttoncontainer">
+            <button class="modal-cancelbutton">Cancel</button>
+            <button class="modal-eventbutton">Yes,Create Event</button>
+
+         </div>
+
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="js/event.js"> </script>
+
+</body>
+
+</html>

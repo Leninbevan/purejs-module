@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WASL Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+
+</head>
+
+<body class="dashboard-management" data-bs-spy="scroll" data-bs-target="#navmenu">
+
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <nav class="navbar navbar-white bg-white  fixed-top">
+      <div class="container-fluid headercontent">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">WASL Admin</a>
+        <div class="offcanvas offcanvas-end bg-white " tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <div class="img-wasl"><img src="images/wasl-logo.png" width="75%"></div>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+
+            <div class="user-profile mb-3">
+              <div class="profile-name"><a href="user-profile.html">Tarun Rathore</a></div>
+              <div class="profile-role">Admin</div>
+            </div>
+
+            <div class="navbar-menu-subhead mb-2">Main</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item mb-2">
+                <a class="nav-link  active dashboard" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link  cust-manage" href="customer-management.html">Customer Management</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link unitManage" href="unit-management.html">Unit Management</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link regisList" href="#">Registration List</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link scanQr" href="#">Scan QR</a>
+              </li>
+            </ul>
+            <hr>
+            <div class="navbar-menu-subhead mb-2">Event</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+              <li class="nav-item">
+                <a class="nav-link Eventicon" href="create-event.html">Create Event</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link manageEvent" href="#">Manage Events</a>
+              </li>
+            </ul>
+            <hr>
+            <div class="navbar-menu-subhead mb-2">User Management</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link  userManage" aria-current="page" href="user-management.html">User Management</a>
+              </li>
+            </ul>
+            <strong>
+              <hr>
+            </strong>
+            <div class="user-logout">
+              <span><a href="#">Logout User</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="headersubcontent">
+          <div class="selectfield"><select class="form-select headerselect" aria-label="Default select example">
+              <option selected>WASL Gardenia Towerhouse</option>
+              <option value="1">WASL 1 </option>
+              <option value="2">WASL 2</option>
+              <option value="3">WASL 3</option>
+            </select></div>
+          <div class="notifyfield">
+            <img src="images/bell-icon.png" class="notify-alerticon" alt="notify" />
+            <div class="notifymessage"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header> <!-- End Header -->
+
+
+  <main id="main" class="main">
+
+    <section class="section pagetitle">
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-11">
+          <div class="">
+            <div class="heading float-start">
+              <h4>Dashboard</h4>
+            </div>
+            <div class="heading float-end">
+              <a href="#" data-bs-toggle="modal" class="btn btn-black" data-bs-target="#dash-newEventModal">Create New
+                Event </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/Money.png">Total Revenue</span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-5">
+                      <h4>122</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/cart.png"> Total Units Sold</span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>900</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/hold.png">Total Units On Hold</span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>14</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/checklist.png"> Price per Sq. Ft</span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>AED 1200</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+
+
+            <div class="col-md-4">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Revenue by Room type</h4>
+
+                  <div class="d-flex align-items-center">
+
+                    <div id="piechart" style="height: 300px; width: 100%;"></div>
+                  </div>
+                  <div class="chart-legend revenue-card">
+                    <div class="chart-roomtype"><span class="bedOne">1 Bed</span> AED 833,464,000 <span
+                        class="units">(40 units) </span></div>
+                    <div class="chart-roomtype"><span class="bedTwo">2 Bed</span> AED 833,464,000 <span
+                        class="units">(50 units) </span></div>
+                    <div class="chart-roomtype"><span class="bedThree">3 Bed</span> AED 98,464,000 <span
+                        class="units">(60 units) </span></div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div><!--End -->
+
+
+            <div class="col-md-4">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Sales by Unit Type</h4>
+
+                  <div class="d-flex align-items-center">
+                    <div id="SalesByUnit" style="height: 300px; width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+            <div class="col-md-4">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Sales Channel Comparison</h4>
+
+                  <div class="d-flex align-items-center">
+                    <div id="donutchart" style="height: 300px; width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5 justify-content-center">
+        <div class="row col-lg-11">
+          <div class="col-md-4">
+            <div class="row" style="display: grid;">
+              <div class="mb-3">
+                <div class="card info-card dashboard-card">
+                  <div class="card-body">
+                    <h4>Customer Engagement</h4>
+
+                    <div class="row customer-engagement align-items-center ">
+                      <div class="col-8 title  p-2"> Avg. Wait Time:</div>
+                      <div class="col-3 time">9 mins</div>
+                    </div>
+                    <div class="row customer-engagement align-items-center ">
+                      <div class="col-8 title  p-2">Avg. Booking Time: </div>
+                      <div class="col-3 time">12 mins</div>
+                    </div>
+                    <div class="row customer-engagement align-items-center ">
+                      <div class="col-8 title  p-2">Avg. Total Time:</div>
+                      <div class="col-3 time">15 mins</div>
+                    </div>
+                    <div class="row customer-engagement align-items-center ">
+                      <div class="col-8 title  p-2">Avg. Units sold per Customer:</div>
+                      <div class="col-3 time">5 mins</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="">
+                <div class="card info-card dashboard-card">
+                  <div class="card-body feedbackchart-container">
+                    <h4>Customer Feedback</h4>
+                    <div class="customerfeedback-titlepie"> <span>77%</span> <br />Good</div>
+
+                    <div class="customer-engagement align-items-center col-9 m-auto">
+                      <canvas id="CustomerFeedbackChart" width="150px" height=""></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div><!--End -->
+
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card info-card dashboard-card mb-3">
+              <div class="card-body">
+                <div class="agent-header">
+                  <h4>Agent Overview</h4>
+
+                  <div class="dropdown" onclick="toggleDropdown()">
+                    <button class="dropbtn openDropdown" id="dropdownbtntoggle">
+                      <div class="openDropdown">All agents</div>
+                      <div class="openDropdown"><img src="images/downarrow.png" alt="down" width="15"
+                          class="openDropdown"></div>
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <input class="dropdown-search" type="text" placeholder="Search.." id="searchInput"
+                        onkeyup="filterFunction()">
+                      <div class="d-flex flex-column filterlabel-data">
+                        <div><label for="opt1"><input type="checkbox" name="option" id="opt1" value="Emily"> Emily
+                            Johnson</label></div>
+                        <div><label for="opt2"><input type="checkbox" name="option" id="opt2" value="Benjamin"> Benjamin
+                            Thompson</label></div>
+                        <div><label for="opt3"><input type="checkbox" name="option" id="opt3" value="Sophia"> Sophia
+                            Anderson</label></div>
+                        <div><label for="opt4"><input type="checkbox" name="option" id="opt4" value="William"> William
+                            Davison</label></div>
+                        <div><label for="opt5"><input type="checkbox" name="option" id="opt5" value="Isabella"> Isabella
+                            Wilson</label></div>
+                      </div>
+                      <button id="submitBtn" class="graphfilterbtn" onclick="handleSubmit()">Compare</button>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d-flex align-items-center">
+                  <div id="columnchart_material" style="width: 800px; height: 350px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card info-card dashboard-card">
+              <div class="card-body">
+
+                <h4>Payment Method Distribution</h4>
+                <div class="row d-inline payment-percentage ">
+                  <div class="mb-1">
+                    <div class="progress-bar" style="width: 10%; background-color: #C0CBCF; "></div>
+                  </div>
+                  <div class="mb-1">
+                    <div class="progress-bar" style="width: 24%; background-color: #302C6F;"></div>
+                  </div>
+                  <div class="mb-1">
+                    <div class="progress-bar" style="width: 14%; background-color: #5872A7; "></div>
+                  </div>
+                  <div class="mb-1">
+                    <div class="progress-bar" style="width: 36%; background-color: #A8709F; "></div>
+                  </div>
+                </div>
+
+                <div class="row payment-methods">
+                  <div class="mb-1 mt-3 ms-3 col-2">
+                    <div class="pos">POS (10%)</div>
+                  </div>
+                  <div class="mb-1 mt-3 col-3">
+                    <div class="e-Services">E-Services(30%)</div>
+                  </div>
+                  <div class="mb-1 mt-3 col-2">
+                    <div class="cheque">Cheque (10%)</div>
+                  </div>
+                  <div class="mb-1 mt-3 col-3">
+                    <div class="quickPay">QuickPay (50%) </div>
+                  </div>
+                </div>
+
+
+
+
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+            <div class="heading float-start">
+              <h4>Sales Agent Details</h4>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/Money.png">Total Revenue</span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-5">
+                      <h4>122</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/cart.png"> Total Units Sold</span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>900</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/hold.png">Total Units On Hold</span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>14</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+
+
+            <div class="col-md-3">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <span class="card-title"><img src="images/checklist.png"> Price per Sq. Ft</span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>AED 1200</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+            <div class="heading float-start">
+              <h4>Buyer Demographics</h4>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+
+
+            <div class="col-md-12 col-lg-12 col-xl-4 mb-2">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Buyer Nationalities- Top 10</h4>
+
+                  <div class="d-flex align-items-center">
+
+                    <div id="buynationalityunit" class="d-flex justify-content-center"
+                      style="height: 300px; width: 100%;">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+
+            <div class="col-md-12 col-lg-12 col-xl-4 mb-2">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Buyer Gender Ratio</h4>
+                  <div class="d-flex flex-column">
+                    <div id="genderratiounit" class="d-flex justify-content-center" style="height: 300px; width: 100%;">
+
+
+                    </div>
+                    <div class="p-4 pt-0 pb-0">
+                      <div class="row chart-legendgender align-items-center ">
+                        <div class="col-8 title  p-2 chart-legendgender__female"> Female</div>
+                        <div class="col-3 time"><strong>170 Units</strong> </div>
+                      </div>
+                      <hr>
+                      <div class="row chart-legendgender align-items-center ">
+                        <div class="col-8 title  p-2 chart-legendgender__male"> Male</div>
+                        <div class="col-3 time"><strong>145 Units</strong></div>
+                      </div>
+
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--End -->
+
+            <div class="col-md-12 col-lg-12 col-xl-4 mb-2">
+              <div class="card info-card dashboard-card">
+                <div class="card-body">
+                  <h4>Buyer Age Range </h4>
+
+                  <div class="d-flex align-items-center">
+                    <div id="buyeragerangeunit" class="d-flex justify-content-center"
+                      style="height: 300px; width: 100%;">
+                      <!-- <div class="chart-container2"> -->
+                      <!-- <canvas id="buyerAgeRangeChart2" width="519" height="259"
+                          style="display: block; box-sizing: border-box; height: 207px; width: 415px;"></canvas> -->
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End -->
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Create New event filter-->
+    <!-- Modal -->
+
+    <div class="modal fade" id="dash-newEventModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered dash-newEventModal" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+
+        </div> -->
+          <div class="modal-body">
+            <div class="time-period">
+              <div class="time-header">Time Period</div>
+              <div class="time-radiogroups">
+                <div class="form-check time-radio">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Last Month
+                  </label>
+                </div>
+                <div class="form-check time-radio">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Last 3 Months
+                  </label>
+                </div>
+                <div class="form-check time-radio">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                  <label class="form-check-label" for="flexRadioDefault3">
+                    Last Year
+                  </label>
+                </div>
+                <div class="form-check time-radio">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
+                  <label class="form-check-label" for="flexRadioDefault4">
+                    Custom Date
+                  </label>
+                </div>
+              </div>
+              <div class="date-submit">
+                <div class="time-dates">
+                  <div class="mb-3">
+                    <label for="date" class="form-label">From Date<span class="required">*</span></label>
+                    <input type="date" class="form-control from-date" id="date">
+                  </div>
+                  <div class="mb-3">
+                    <label for="date" class="form-label">To Date<span class="required">*</span></label>
+                    <input placeholder="Today" class="form-control to-date" type="text" onfocus="(this.type='date')"
+                      onblur="(this.type='text')" />
+                  </div>
+                </div>
+                <div><button type="button" class="btn btn-outline-secondary select-btn">Select</button></div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="events">
+              <div class="events-header">Events</div>
+              <div class="event-fields">
+                <div class="search-container">
+                  <img src="./images/search.png" alt="search" class="search-icon">
+                  <input type="text" name="search" class="search" placeholder="Search by Event Name">
+                </div>
+                <div class="event-field">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                    <label class="form-check-label" for="flexRadioDefault5">
+                      Event Name 1
+                    </label>
+                  </div>
+                  <div class="event-liveDiv">
+                    <div class="event-live">Live</div>
+                  </div>
+                </div>
+                <div class="event-field">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                    <label class="form-check-label" for="flexRadioDefault6">
+                      Event Name 2
+                    </label>
+                  </div>
+                  <div class="event-end">Ended</div>
+                </div>
+                <div class="event-field">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                    <label class="form-check-label" for="flexRadioDefault7">
+                      Event Name 3
+                    </label>
+                  </div>
+                  <div class="event-end">Ended</div>
+                </div>
+                <div class="event-field">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                    <label class="form-check-label" for="flexRadioDefault8">
+                      Event Name 4
+                    </label>
+                  </div>
+                  <div class="event-end">Ended</div>
+                </div>
+                <div class="event-field">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+                    <label class="form-check-label" for="flexRadioDefault9">
+                      Event Name 5
+                    </label>
+                  </div>
+                  <div class="event-end">Ended</div>
+                </div>
+                <div class="footer-button"><button type="button" class="btn btn-dark button">Continue</button></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="footer-button"><button type="button" class="btn btn-dark button">Continue</button></div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal End -->
+
+  </main><!-- End #main -->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+
+
+  <!--Agent Overview Graph-->
+  <script>
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    var initialData = [
+      ['Agents', 'No. of Check Ins', 'Deals Closed', 'Avg Time per buyer (min.)'],
+      ['Emily', 1000, 400, 200],
+      ['Benjamin', 1170, 460, 250],
+      ['Sophia', 660, 1120, 300],
+      ['William', 1030, 540, 350],
+      ['Isabella', 1030, 540, 350]
+    ];
+
+    function filterFunction() {
+      var input, filter, labels, i;
+      input = document.getElementById('searchInput');
+      filter = input.value.toUpperCase();
+      labels = document.querySelectorAll('#myDropdown label');
+
+      for (i = 0; i < labels.length; i++) {
+        var label = labels[i];
+        var txtValue = label.textContent || label.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          label.style.display = "";
+        } else {
+          label.style.display = "none";
+        }
+      }
+    }
+
+    function toggleDropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    document.querySelectorAll('.filterlabel-data input[type="checkbox"], .filterlabel-data label').forEach(function (item) {
+      item.addEventListener('click', function (event) {
+        event.stopPropagation();
+      });
+    });
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.openDropdown')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('click', function (event) {
+      event.stopPropagation(); // Stop the event from bubbling up
+    });
+
+
+    const checkboxes = document.querySelectorAll('.filterlabel-data input[type="checkbox"]');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('click', function (event) {
+        event.stopPropagation(); // Stop the event from bubbling up
+      });
+    });
+
+
+    function handleSubmit() {
+      var selectedOptions = [];
+      var checkboxes = document.querySelectorAll('#myDropdown input[type=checkbox]');
+
+      for (var checkbox of checkboxes) {
+        if (checkbox.checked) {
+          selectedOptions.push(checkbox.value);
+        }
+      }
+      if (!selectedOptions.length) {
+        drawChart();
+        return;
+      }
+      updateChart(selectedOptions);
+    }
+
+    function updateChart(selectedOptions) {
+      var filteredData = [['Agents', 'No. of Check Ins', 'Deals Closed', 'Avg Time per buyer (min.)']];
+
+      for (var row of initialData) {
+        if (selectedOptions.includes(row[0])) {
+          filteredData.push(row);
+        }
+      }
+
+      drawChart(filteredData);
+    }
+
+    function drawChart(filteredData = null) {
+      var data = filteredData || initialData;
+
+      var data1 = google.visualization.arrayToDataTable(data);
+
+      var options1 = {
+        chart: {
+          title: '',
+          subtitle: '',
+          responsive: true,
+          legend: {
+            position: 'top',
+          },
+        },
+        colors: ['#61334D', '#5872A7', '#83B8AD']
+      };
+
+      var chart1 = new google.charts.Bar(document.getElementById('columnchart_material'));
+      chart1.draw(data1, google.charts.Bar.convertOptions(options1));
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+   
+  </head>
+  <body class="user-profile" data-bs-spy="scroll" data-bs-target="#navmenu">
+    
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <nav class="navbar navbar-white bg-white  fixed-top">
+        <div class="container-fluid">
+        
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">WASL Admin</a>
+          <div class="offcanvas offcanvas-end bg-white " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <div class="img-wasl"><img src="images/wasl-logo.png" width="75%"></div> 
+              <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+              <div class="user-profile mb-3">
+                <div class="profile-name"><a href="user-profile.html">Tarun Rathore</a></div>
+                <div class="profile-role">Admin</div>
+              </div>
+
+              <div class="navbar-menu-subhead mb-2">Main</div>
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item mb-2">
+                  <a class="nav-link  active dashboard" aria-current="page" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link  cust-manage" href="customer-management.html">Customer Management</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link unitManage" href="unit-management.html">Unit Management</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link regisList" href="#">Registration List</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link scanQr" href="#">Scan QR</a>
+                </li>
+              </ul>
+                <hr>
+                <div class="navbar-menu-subhead mb-2">Event</div>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"> 
+                  
+                  <li class="nav-item">
+                    <a class="nav-link Eventicon" href="create-event.html">Create Event</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link manageEvent" href="#">Manage Events</a>
+                  </li>
+                </ul>
+                <hr>
+                <div class="navbar-menu-subhead mb-2">User Management</div>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"> 
+                  <li class="nav-item">
+                   <a class="nav-link  userManage" aria-current="page" href="user-management.html">User Management</a>
+                 </li>
+                </ul>
+                <strong><hr></strong>
+                <div class="user-logout">
+                  <span><a href="#">Logout User</a></span>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </header> <!-- End Header -->
+
+    
+    <main id="main" class="main">
+      
+      <section class="section pagetitle user-profile-container"> 
+        <div class="row mb-4 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+                <div class="heading float-start">
+                  <h2>My Profile</h2>
+                </div>
+                <div class="logout-user float-end">
+                  <a href="#">Logout User</a>
+                </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-11">
+            <div class="row user-profile-card">
+
+             
+                <div class="col-md-3 col-sm-3">
+                  <div class="card-info">
+                  
+                      <div class="d-flex align-items-center justify-content-center">
+                          <div class="mt-4 profile-name">
+                                  <h2>OP</h2>  
+                          </div>
+                      </div>
+                  </div>
+                </div><!--End -->
+
+              <div class="col-md-4 col-sm-3">
+                <div class="card-info">
+                  <div class="form-group flex-column d-flex"> 
+
+                    <div class="input-group mb-3">
+                      <div class="templatetype">
+                          <label class="form-label">NAME <span class="required">*</span></label>
+                          <input type="text" class="form-control" aria-label="" value="Khalid Al-Makhni" id="" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group flex-column d-flex"> 
+
+                    <div class="input-group mb-3">
+                      <div class="templatetype">
+                          <label for="templatetype" class="form-label">MOBILE NUMBER <span class="required">*</span></label>
+                          <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+98</button>
+                            <ul class="dropdown-menu" style="">
+                              <li><a class="dropdown-item" href="#">+91</a></li>
+                              <li><a class="dropdown-item" href="#">+35</a></li>
+                              </ul>
+                            <input type="text" class="form-control" aria-label="Text" id="" value="989865255" disabled>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!--End -->
+
+              <div class="col-md-4 col-sm-3">
+                <div class="card-info">
+                  <div class="form-group flex-column d-flex"> 
+
+                    <div class="input-group mb-3">
+                      <div class="templatetype">
+                          <label for="templatetype" class="form-label">EMAIL ID OF USER <span class="required">*</span></label>
+                          <input type="text" class="form-control" aria-label="Text" id="" value="Khalid.almakhni@wasl.ae" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group flex-column d-flex"> 
+
+                        <div class="input-group mb-3">
+                          <div class="templatetype">
+                            <div class="dropdown user-roles"> 
+                              <label class="form-label d-flex">USER ROLE<span class="required">*</span></label>
+                              <button class="btn btn-success dropdown-toggle" type="button" id="multiSelectDropdown"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"> 
+                                Operations
+                              </button> 
+                              <ul class="dropdown-menu"  aria-labelledby="multiSelectDropdown"> 
+                                  <span>Select User Role</span>
+                                  <hr>
+                                <li> 
+                                  <label><input type="checkbox" value="Operations Manager">Operations Manager </label> 
+                                </li> 
+                                <li class="mb-2"> 
+                                <label>  <input type="checkbox" value="OPERATIONS">OPERATIONS  </label> 
+                                </li> 
+                                <li class="mb-2"> 
+                                <label> <input type="checkbox"  value="BACKOFFICE"> BACKOFFICE  </label> 
+                                </li>
+                                <li class="mb-2"> 
+                                  <label> <input type="checkbox"  value="Admin"> ADMIN  </label> 
+                                </li> 
+                              </ul> 
+                            </div>
+                                
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div><!--End -->
+            </div>
+          </div>
+          </div>
+        </section>
+  
+    </main><!-- End #main -->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="js/DataTables/datatables.min.js"></script> -->
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script> 
+  const chBoxes =  document.querySelectorAll('.dropdown-menu input[type="checkbox"]'); 
+  const dpBtn =  document.getElementById('multiSelectDropdown'); 
+  let mySelectedListItems = []; 
+
+  function handleCB() { 
+    mySelectedListItems = []; 
+    let mySelectedListItemsText = ''; 
+
+    chBoxes.forEach((checkbox) => { 
+      if (checkbox.checked) { 
+        mySelectedListItems.push(checkbox.value); 
+        mySelectedListItemsText += checkbox.value + ', '; 
+      } 
+    }); 
+
+    dpBtn.innerText =  mySelectedListItems.length > 0 ? mySelectedListItemsText.slice(0, -2) : 'Select'; 
+  } 
+
+  chBoxes.forEach((checkbox) => { 
+    checkbox.addEventListener('change', handleCB); 
+  }); 
+</script> 
+
+
+  </body>
+</html>

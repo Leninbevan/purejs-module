@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Request Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/requestmanagement.css" rel="stylesheet">
+    <!-- <link href="css/requestmanage.css" rel="stylesheet"> -->
+    <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+
+</head>
+
+<body class="request-management requestmanage-containerarea" data-bs-spy="scroll" data-bs-target="#navmenu">
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <nav class="navbar navbar-white bg-white  fixed-top">
+            <div class="container-fluid requestmanage-headercontent">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">WASL Operations Manager</a>
+                <div class="offcanvas offcanvas-end bg-white " tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <div class="img-wasl"><img src="images/wasl-logo.png" width="75%"></div>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+
+                        <div class="user-profile mb-3">
+                            <div class="profile-name"><a href="user-profile.html">Tarun Rathore</a></div>
+                            <div class="profile-role">Admin</div>
+                        </div>
+
+                        <div class="navbar-menu-subhead mb-2">Main</div>
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item mb-2">
+                                <a class="nav-link  dashboard" aria-current="page" href="#">Dashboard</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link active cust-manage" href="#">Customer Management</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link requestmanage" href="#">Unit Management</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link regisList" href="#">Registration List</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link scanQr" href="#">Scan QR</a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="navbar-menu-subhead mb-2">Event</div>
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                            <li class="nav-item">
+                                <a class="nav-link Eventicon" href="#">Create Event</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link manageEvent" href="#">Manage Events</a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="navbar-menu-subhead mb-2">User Management</div>
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link  userManage" aria-current="page" href="user-management.html">User
+                                    Management</a>
+                            </li>
+                        </ul>
+                        <strong>
+                            <hr>
+                        </strong>
+                        <div class="user-logout">
+                            <span><a href="#">Logout User</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="requestmanage-headersubcontent">
+                    <div class="requestmanage-selectfield"><select class="form-select requestmanage-headerselect"
+                            aria-label="Default select example">
+                            <option selected>WASL Gardenia Towerhouse</option>
+                            <option value="1">WASL 1 </option>
+                            <option value="2">WASL 2</option>
+                            <option value="3">WASL 3</option>
+                        </select></div>
+                    <div class="requestmanage-notifyfield">
+                        <img src="images/bell-icon.png" class="notify-alerticon" alt="notify" />
+                        <div class="requestmanage-notifymessage"></div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header> <!-- End Header -->
+
+
+
+
+    <main id="main" class="main ">
+
+        <section class="section pagetitle requestmanage-container">
+
+
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mt-3 pt-3 mb-4 float-start">Request Management</h5>
+
+                            <div class="d-flex userSearch-form justify-content-end mt-4">
+                                <div class="seachfield-container">
+                                    <img src="images/search.png" class="requestmanage-serachicon" alt="search" />
+                                    <input class="form-control user-search float-end" id="SearchInput" type="text"
+                                        placeholder="Search" size="60" autocomplete="off">
+                                </div>
+
+                                <!-- <div class="table-filter"><a data-bs-toggle="offcanvas" href="#offcanvasWithBothOptions" role="button" aria-controls="offcanvasWithBothOptions" >Apply filter</a></div> -->
+                                <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" -->
+                                <!-- aria-controls="offcanvasWithBothOptions" -->
+
+                                <div class="requestmanage-filterarea"><button class="requestmanage-applyfilter"
+                                        type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasWithBothOptions"
+                                        aria-controls="offcanvasWithBothOptions"><img src="images/filter.png"
+                                            alt="filter" /> Apply
+                                        filter</button></div>
+
+                            </div>
+
+
+
+                            <!-- Table with stripped rows -->
+                            <div class="requestmanage-tabcontainer d-flex">
+                                <div class="requestmanage-switchtab requestmanage-activebar"
+                                    onclick="filterTableFunction(0,'RemovePrimaryBuyer')">REMOVE PRIMARY
+                                    BUYER<span></span>
+                                </div>
+                                <div class="requestmanage-switchtab" onclick="filterTableFunction(1,'SplitBuyer')">SPLIT
+                                    BUYER<span></span>
+                                </div>
+                                <div class="requestmanage-switchtab" onclick="filterTableFunction(2,'ChangeOwner')">
+                                    CHANGE
+                                    OWNERSHIP TYPE<span></span>
+                                </div>
+                                <div class="requestmanage-switchtab" onclick="filterTableFunction(3,'AddBuyer')">ADD
+                                    BUYER
+                                    REQUEST
+                                    <span></span>
+                                </div>
+                            </div>
+                            <table class="table table-responsive customer-management requestmanage-tablefield"
+                                id="userTable">
+                                <thead>
+
+                                    <tr class="requestmanage-staticheader">
+
+                                        <th>S no</th>
+                                        <th>Token No</th>
+                                        <th>Ref ID</th>
+                                        <th>Request
+                                            Status</th>
+                                        <th>Action</th>
+                                        <th>Sales Agent</th>
+                                        <th>Broker Name</th>
+                                        <th>POA</th>
+                                        <th>Sales Agent Remarks</th>
+                                        <th>Operation ManagerAgent Remarks</th>
+                                        <!-- <th>Selling Price</th> -->
+
+                                    </tr>
+                                </thead>
+                                <tbody class="requestmanage-tablebody" data-testid="unitList">
+                                    <tr class="filterable" data-category="RemovePrimaryBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>1.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#removePrimaryBuyer">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+                                    </tr>
+                                    <tr class="filterable" data-category="SplitBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>2.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#splitbuyermodal">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="ChangeOwner">
+
+                                        <td><span class="requestmanage-serialorder"></span>3.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Close</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#changeownership">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> Yes </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> -- </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="AddBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>4.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#addbuyerrequest">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> -- </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="ChangeOwner">
+
+                                        <td><span class="requestmanage-serialorder"></span>5.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#changeownership">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="RemovePrimaryBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>6.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#removePrimaryBuyer">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="ChangeOwner">
+
+                                        <td><span class="requestmanage-serialorder"></span>7.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#changeownership">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> Yes </td>
+                                        <td> -- </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="SplitBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>8.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#splitbuyermodal">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+                                    <tr class="filterable" data-category="SplitBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>9.</td>
+                                        <td>12509</td>
+                                        <td>02863</td>
+                                        <td>Open</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#splitbuyermodal">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> NO </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+
+                                    <tr class="filterable" data-category="SplitBuyer">
+
+                                        <td><span class="requestmanage-serialorder"></span>10.</td>
+                                        <td>12539</td>
+                                        <td>02863</td>
+                                        <td>Close</td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#splitbuyermodal">
+                                                <img class="requestmanage-paint" src="images/paint.png" alt="draw" />
+                                            </a>
+                                        </td>
+                                        <td>Abdul Khalid</td>
+                                        <td>Raju Sharma</td>
+                                        <td> Yes </td>
+                                        <td> Lorem Ipsum Dolorem </td>
+                                        <td> Lorem Ipsum Dolorem .Lorem Ipsum Dolorem </td>
+
+                                    </tr>
+									<tr id="noRecordTR" class='notfound'>
+									                                        <td colspan='10'>No Records Found</td>
+									                                      </tr>
+
+                                </tbody>
+                            </table>
+
+
+                            <!-- End Table with stripped rows -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <!-- Apply Filter  -->
+    <div class="offcanvas offcanvas-end requestmanage-filtercontainer" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <div class="requestmanage-headercontent d-flex flex-column">
+                <div class="requestmanage-headertitle d-flex">Apply Filters <button type="button" class="btn-close"
+                        data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+                <div class="requestmanage-subheader"> Select filters of your choice to see the right property. </div>
+            </div>
+        </div>
+        <div class="offcanvas-body">
+
+            <div class="requestmanage-multiselect">
+
+                <div class="requestmanage-title">
+                    BUILDING NAME
+                </div>
+
+                <div class="dropdown">
+                    <div id="buildingdropdown-content" class="dropdown-content dropdown-index">
+                        <input type="text" id="buildingfilterInput" required
+                            onfocus="showDropdown('buildingoptionsfield')"
+                            onkeyup="filterFunction('buildingfilterInput','buildingdropdown-content')"
+                            placeholder="Search..">
+                        <div class="optionsfield" id="buildingoptionsfield">
+                            <label>Spa <input class="form-check-input buildingoptions option" type="checkbox"
+                                    value="Spa" onclick="updateSelected('buildingoptions', 'buildingselected-options')">
+                            </label>
+                            <label>BBQ <input class="form-check-input  buildingoptions option" type="checkbox"
+                                    value="BBQ" onclick="updateSelected('buildingoptions', 'buildingselected-options')">
+                            </label>
+                            <label> Football court <input class="form-check-input buildingoptions option"
+                                    type="checkbox" value="Football Court"
+                                    onclick="updateSelected('buildingoptions', 'buildingselected-options')">
+                            </label>
+                            <label> Badminton <input class="form-check-input buildingoptions option" type="checkbox"
+                                    value="Badminton"
+                                    onclick="updateSelected('buildingoptions', 'buildingselected-options')"> </label>
+                            <label> Theatre <input class="form-check-input buildingoptions option" type="checkbox"
+                                    value="Theatre"
+                                    onclick="updateSelected('buildingoptions', 'buildingselected-options')"></label>
+                            <label> Mall <input class="form-check-input buildingoptions option" type="checkbox"
+                                    value="Mall"
+                                    onclick="updateSelected('buildingoptions', 'buildingselected-options')"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-paymentoptions">
+                    <div id="buildingselected-options" class="selected-options" data-scroll-container>
+                    </div>
+                </div>
+            </div>
+            <div class="requestmanage-multiselect">
+
+                <div class="requestmanage-title">
+                    UNIT TYPE
+                </div>
+
+                <div class="dropdown">
+                    <div id="unittypedropdown-content" class="dropdown-content dropdown-index">
+                        <input type="text" id="unittypefilterInput" required
+                            onfocus="showDropdown('unittypeoptionsfield')"
+                            onkeyup="filterFunction('unittypefilterInput','unittypedropdown-content')"
+                            placeholder="Search..">
+                        <div class="optionsfield" id="unittypeoptionsfield">
+                            <label>Spa <input class="form-check-input unittypeoptions option" type="checkbox"
+                                    value="Spa" onclick="updateSelected('unittypeoptions', 'unittypeselected-options')">
+                            </label>
+                            <label>BBQ <input class="form-check-input  unittypeoptions option" type="checkbox"
+                                    value="BBQ" onclick="updateSelected('unittypeoptions', 'unittypeselected-options')">
+                            </label>
+                            <label> Football court <input class="form-check-input unittypeoptions option"
+                                    type="checkbox" value="Football Court"
+                                    onclick="updateSelected('unittypeoptions', 'unittypeselected-options')">
+                            </label>
+                            <label> Badminton <input class="form-check-input unittypeoptions option" type="checkbox"
+                                    value="Badminton"
+                                    onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"> </label>
+                            <label> Theatre <input class="form-check-input unittypeoptions option" type="checkbox"
+                                    value="Theatre"
+                                    onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"></label>
+                            <label> Mall <input class="form-check-input unittypeoptions option" type="checkbox"
+                                    value="Mall"
+                                    onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-paymentoptions">
+                    <div id="unittypeselected-options" class="selected-options" data-scroll-container>
+                    </div>
+                </div>
+            </div>
+            <div class="requestmanage-multiselect">
+
+                <div class="requestmanage-title">
+                    NO OF UNITS
+                </div>
+
+                <div class="dropdown">
+                    <div id="salesagentdropdown-content" class="dropdown-content dropdown-index">
+                        <input type="text" id="salesagentfilterInput" required
+                            onfocus="showDropdown('salesagentoptionsfield')"
+                            onkeyup="filterFunction('salesagentfilterInput','salesagentdropdown-content')"
+                            placeholder="Search..">
+                        <div class="optionsfield" id="salesagentoptionsfield">
+                            <label>Spa <input class="form-check-input salesagentoptions option" type="checkbox"
+                                    value="Spa"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+                            </label>
+                            <label>BBQ <input class="form-check-input  salesagentoptions option" type="checkbox"
+                                    value="BBQ"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+                            </label>
+                            <label> Football court <input class="form-check-input salesagentoptions option"
+                                    type="checkbox" value="Football Court"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+                            </label>
+                            <label> Badminton <input class="form-check-input salesagentoptions option" type="checkbox"
+                                    value="Badminton"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+                            </label>
+                            <label> Theatre <input class="form-check-input salesagentoptions option" type="checkbox"
+                                    value="Theatre"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"></label>
+                            <label> Mall <input class="form-check-input salesagentoptions option" type="checkbox"
+                                    value="Mall"
+                                    onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-paymentoptions">
+                    <div id="salesagentselected-options" class="selected-options" data-scroll-container>
+                    </div>
+                </div>
+            </div>
+
+            <div class="requestmanage-multiselect">
+
+                <div class="requestmanage-title">
+                    UNIT STATUS
+                </div>
+
+                <div class="dropdown">
+                    <div id="unitstatusdropdown-content" class="dropdown-content dropdown-index">
+                        <input type="text" id="unitstatusfilterInput" required
+                            onfocus="showDropdown('unitstatusoptionsfield')"
+                            onkeyup="filterFunction('unitstatusfilterInput','unitstatusdropdown-content')"
+                            placeholder="Search..">
+                        <div class="optionsfield" id="unitstatusoptionsfield">
+                            <label>Spa <input class="form-check-input unitstatusoptions option" type="checkbox"
+                                    value="Spa"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')">
+                            </label>
+                            <label>BBQ <input class="form-check-input  unitstatusoptions option" type="checkbox"
+                                    value="BBQ"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')">
+                            </label>
+                            <label> Football court <input class="form-check-input unitstatusoptions option"
+                                    type="checkbox" value="Football Court"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')">
+                            </label>
+                            <label> Badminton <input class="form-check-input unitstatusoptions option" type="checkbox"
+                                    value="Badminton"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')">
+                            </label>
+                            <label> Theatre <input class="form-check-input unitstatusoptions option" type="checkbox"
+                                    value="Theatre"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')"></label>
+                            <label> Mall <input class="form-check-input unitstatusoptions option" type="checkbox"
+                                    value="Mall"
+                                    onclick="updateSelected('unitstatusoptions', 'unitstatusselected-options')"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eventdetails-paymentoptions">
+                    <div id="unitstatusselected-options" class="selected-options" data-scroll-container>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="custom-wrapper">
+                <div class="header">
+                    <h5 class="projtitle">
+                        PRICE RANGE
+                    </h5>
+                </div>
+                <div class="slider-container">
+                    <div class="price-slider">
+                    </div>
+                </div>
+
+                <div class="price-input-container">
+                    <div class="range-input">
+                        <input type="range" class="min-range" min="0" max="1000000" value="0" step="10000"
+                            autocomplete="off">
+                        <input type="range" class="max-range" min="0" max="1000000" value="1000000" step="10000"
+                            autocomplete="off">
+                    </div>
+                    <div class="price-input">
+                        <div class="price-field">
+                            <div class="inputLable">Min AED</div>
+                            <input type="number" class="min-input" value="0" autocomplete="off">
+                        </div>
+                        <div>to</div>
+                        <div class="price-field">
+                            <div class="inputLable">Max AED</div>
+                            <input type="number" class="max-input" value="1000000" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="requestmanage-buttoncontainer">
+                <button type="button" class="btn btn-outline-dark filterbutton">Clear All</button>
+                <button type="button" class="btn btn-dark filterbutton">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- edit price modal-->
+    <div class="modal fade" id="editrequestmanagemodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable requestmanage-modalconatiner">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                    EDIT UNIT PRICE
+                </div>
+                <div class="modal-body">
+                    <div class="requestmanage-unitsno"> NO. OF UNITS : <span>50</span></div>
+                    <div class="table-container">
+                        <table class="table custom-table">
+                            <thead>
+                                <tr>
+                                    <th>S no</th>
+                                    <th>Building Name</th>
+                                    <th>Unit No.</th>
+                                    <th>Unit Type</th>
+                                    <th>Initial Price</th>
+                                    <th>Current Price</th>
+                                    <th>Request Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Green Park A</td>
+                                    <td>1001</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Green Park A</td>
+                                    <td>1002</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>3.</td>
+                                    <td>Green Park A</td>
+                                    <td>1003</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>4.</td>
+                                    <td>Green Park A</td>
+                                    <td>1004</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>5.</td>
+                                    <td>Green Park A</td>
+                                    <td>1005</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>6.</td>
+                                    <td>Green Park A</td>
+                                    <td>1006</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>7.</td>
+                                    <td>Green Park A</td>
+                                    <td>1006</td>
+                                    <td>Type 1A-4</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 5,000,192</td>
+                                    <td>AED 6,000,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="new-price">REQUESTED NEW PRICE (AED)<span>*</span></label>
+                        <input type="text" id="new-price" class="form-control requestmanage-editpriceinput"
+                            value="6,000,000">
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark filterbutton"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-dark filterbutton">Clear All</button>
+                    <button type="button" class="btn btn-dark filterbutton">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- remove primary buyer modal-->
+    <div class="modal fade" id="removePrimaryBuyer" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center requestmanage-removebuyer">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                    <img src="/images/InformationCircle.png" alt="infoCircle" class="notifytime">
+                    Remove Primary Buyer Request
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-3 pe-4 ps-4">
+                                <div class="form-group flex-column d-flex">
+
+                                    <div class="removebuyer-inputfield">
+                                        <label class="form-label">PRIMARY BUYER </label>
+                                        <input type="text" class="form-control" aria-label="" value="Khalid Al-Makhni"
+                                            id="" disabled="">
+                                    </div>
+                                </div>
+                            </div><!--End -->
+
+                            <div class="col-md-6 col-sm-3 pe-4 ps-4">
+                                <div class="form-group flex-column d-flex">
+                                    <div class="removebuyer-inputfield">
+                                        <label for="templatetype" class="form-label">ASSIGNED NEW PRIMARY BUYER</label>
+                                        <input type="text" class="form-control" aria-label="Text" id=""
+                                            value="Khalid.almakhni@wasl.ae" disabled="">
+                                    </div>
+                                </div>
+                            </div><!--End -->
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-3 pe-4 ps-4">
+                                <div class="form-group flex-column d-flex">
+
+                                    <div class="removebuyer-inputfield">
+                                        <label class="form-label">SALES AGENT REMARKS</label>
+                                        <input type="text" class="form-control salesagent" aria-label=""
+                                            value="Adam is backing out due to financial reasons" id="" disabled="">
+                                    </div>
+                                </div>
+                            </div><!--End -->
+                        </div>
+
+                        <div class="row remarkscontainer mb-3">
+                            <div class="col-md-12 col-sm-3 pe-4 ps-4">
+                                <div class="form-group flex-column d-flex">
+
+                                    <div class="removebuyer-inputfield">
+                                        <label class="form-label">REMARKS</label>
+
+                                        <textarea class="form-control buyerremarks" id="" rows="3"
+                                            placeholder="Enter"></textarea>
+                                    </div>
+                                </div>
+                            </div><!--End -->
+                        </div>
+
+                        <div class="confirmaccess  ps-3 me-2 d-flex">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <span class="ms-2">I as the Operations Manager of Wasl confirm the removal of Primary
+                                Buyer</span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark filterbutton"
+                        data-bs-dismiss="modal">Reject</button>
+                    <button type="button" class="btn btn-dark filterbutton">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--split buyer modal-->
+    <div class="modal fade" id="splitbuyermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered splitbuyer-modalconatiner" role="document">
+            <div class="modal-content splitbuyer-modal-content">
+                <div class="modal-header splitbuyer-modal-header">
+                    <div><img src="./images/InformationCircle.png" alt="infoCircle" class="buyer-header-image"></div>
+                    <div class="buyer-header-title">Split Buyer Request</div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="checkBox-header">BUYERS TO SLPIT TO NEW TOKEN<span class="required">*</span></div>
+                        <div class="buyer-checkBoxes">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="adamHolmes">
+                                    ADAM HOLMES (Primary)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="evanFarland">
+                                    EVAN FARLAND
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="emaWilcal">
+                                    EMA WILCAL
+                                </label>
+                            </div>
+                        </div>
+                        <div class="remarkFields">
+                            <div class="agentRemark">
+                                <label for="agentRemark" class="form-label agentRemark-form-label">SALES AGENT
+                                    REMARKS</label>
+                                <input type="text" class="form-control agentRemark-inputField" id="agent"
+                                    placeholder="Buyer Evans want to buy the units under solely under his name.">
+                            </div>
+                            <div class="agentRemark">
+                                <label for="remark" class="form-label agentRemark-form-label">REMARKS</label>
+                                <textarea type="text" class="form-control remark-inputField" id="agent"
+                                    placeholder="Enter"></textarea>
+                            </div>
+                            <div class="buyer-agree-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="adamHolmes">
+                                    I as the Operations Manager of Wasl confirm the split of Buyers.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="buyer-request-management-buttons">
+                        <button type="button" data-bs-dismiss="modal"
+                            class="btn btn-outline-dark buyer-request-management-rejectBtn">Reject</button>
+                        <button type="button" class="btn btn-dark buyer-request-management-approveBtn">Approve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--changeownershipreques modalt-->
+    <div class="modal fade" id="changeownership" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog request-management-owner modal-dialog-centered" role="document">
+            <div class="modal-content request-management-owner-modal">
+                <div class="modal-header request-management-owner-header d-flex justify-content-center">
+                    <img src="/images/InformationCircle.png" alt="infoCircle" class="notifytime">
+                    <div class="modal-title request-management-owner-header-title" id="exampleModalLongTitle">Change
+                        Ownership Type Request</div>
+                </div>
+                <div class="modal-body">
+                    <div class="request-management-owner-inputFields">
+                        <div class="request-management-ownership-inputFields">
+                            <div class="form-group">
+                                <label for="previousOwner" class="request-management-input-label">PREEVIOUS OWNERSHIP
+                                    TYPE<span class="required">*</span></label>
+                                <input type="text" class="form-control owner-inputField" aria-describedby="emailHelp"
+                                    placeholder="JOINT">
+                            </div>
+                            <div class="form-group">
+                                <label for="desiredOwner" class="request-management-input-label">DESIRED OWNERSHIP
+                                    TYPE<span class="required">*</span></label>
+                                <input type="text" class="form-control owner-inputField" aria-describedby="emailHelp"
+                                    placeholder="CORPORATE">
+                            </div>
+                        </div>
+                        <div class="form-group salesagent-remarks">
+                            <label for="agentRemark" class="request-management-input-label">SALES AGENT REMARKS</label>
+                            <input type="text" class="form-control request-managementAgentRemark-inputField"
+                                aria-describedby="emailHelp"
+                                placeholder="Buyers want to buy the units under their property name">
+                        </div>
+                        <div class="form-group ownershipremarks">
+                            <label for="agentRemarks" class="request-management-input-label">REMARKS</label>
+                            <textarea class="form-control request-managementRemark-inputField"
+                                aria-describedby="emailHelp" placeholder="Enter"></textarea>
+                        </div>
+                    </div>
+                    <div class="owner-custom-checkbox">
+                        <input type="checkbox" class="form-check-input me-2" id="exampleCheck1">
+                        <label class="form-check-label request-management-checkBox " for="exampleCheck1">I as the
+                            Operations Manager of Wasl confirm the change of Ownership Type.</label>
+                    </div>
+                    <div class="owner-request-management-buttons">
+                        <button type="button" data-bs-dismiss="modal"
+                            class="btn btn-outline-dark owner-request-management-rejectBtn">Reject</button>
+                        <button type="button" class="btn btn-dark owner-request-management-approveBtn">Approve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="js/DataTables/datatables.min.js"></script> -->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Edit userjs -->
+    <script>
+
+        function filterTableFunction(tab, category) {
+            const tabData = document.querySelectorAll('.requestmanage-switchtab');
+            tabData.forEach((item, index) => {
+                if (index === tab) {
+                    item.classList.add('requestmanage-activebar');
+                }
+                else {
+                    item.classList.remove('requestmanage-activebar');
+                }
+            })
+
+
+            var rows = document.querySelectorAll('.filterable');
+            rows.forEach(function (row) {
+                if (category === 'All' || row.getAttribute('data-category') === category) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            var tablinks = document.querySelectorAll('.tablink');
+            tablinks.forEach(function (tablinks) {
+                if (tablinks.textContent.toLowerCase() === category.toLowerCase()) {
+                    tablinks.classList.add('active');
+                } else {
+                    tablinks.classList.remove('active');
+                }
+            });
+        }
+        // function switchTab(tab) {
+        //   const tabData = document.querySelectorAll('.requestmanage-switchtab');
+        //   tabData.forEach((item, index) => {
+        //     if (index === tab) {
+        //       item.classList.add('requestmanage-activebar');
+        //     }
+        //     else {
+        //       item.classList.remove('requestmanage-activebar');
+        //     }
+        //   })
+        // }
+
+
+
+        function showDropdown(data) {
+            const unhideOptions = ['salesagentoptionsfield', 'buildingoptionsfield', 'unittypeoptionsfield', 'unitstatusoptionsfield'];
+            const removeOptions = unhideOptions.filter((item) => item !== data);
+            removeOptions.forEach((list) => {
+                document.getElementById(list).classList.remove("dropdownshown");
+            })
+            document.getElementById(data).classList.add("dropdownshown");
+        }
+
+        function filterFunction(filterdata, dropdowndata) {
+            var input, filter, div, labels, i, txtValue;
+            input = document.getElementById(filterdata);
+            filter = input.value.toUpperCase();
+            div = document.getElementById(dropdowndata);
+            labels = div.getElementsByTagName("label");
+            for (i = 0; i < labels.length; i++) {
+                txtValue = labels[i].textContent || labels[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    labels[i].style.display = "";
+                } else {
+                    labels[i].style.display = "none";
+                }
+            }
+        }
+
+        function updateSelected(fieldoptions, displayedoptions) {
+            var checkboxes = document.getElementsByClassName(fieldoptions);
+            var selectedOptionsDiv = document.getElementById(displayedoptions);
+
+            // Clear all dynamically added children
+            selectedOptionsDiv.innerHTML = '';
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    (function (checkbox) {
+                        var optionDiv = document.createElement('div');
+                        optionDiv.className = 'selected-option';
+                        optionDiv.textContent = checkbox.value;
+
+                        optionDiv.style.color = '#ffffff';
+
+                        var removeIconDiv = document.createElement('div');
+                        removeIconDiv.className = 'remove-icon';
+                        removeIconDiv.textContent = 'X';
+
+                        removeIconDiv.style.color = '#ffffff';
+                        removeIconDiv.style.cursor = 'pointer';
+                        removeIconDiv.style.marginLeft = '10px';
+
+                        // Add onclick event to remove the selected option and uncheck the checkbox
+                        removeIconDiv.onclick = function () {
+                            optionDiv.remove();
+                            checkbox.checked = false;
+                        };
+
+                        optionDiv.appendChild(removeIconDiv);
+                        selectedOptionsDiv.appendChild(optionDiv);
+                    })(checkboxes[i]);
+                }
+            }
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('#salesagentfilterInput') && !event.target.closest('.dropdown-content')) {
+                document.getElementById("salesagentoptionsfield").classList.remove("dropdownshown");
+            }
+            if (!event.target.matches('#buildingfilterInput') && !event.target.closest('.dropdown-content')) {
+                document.getElementById("buildingoptionsfield").classList.remove("dropdownshown");
+            }
+            if (!event.target.matches('#unittypefilterInput') && !event.target.closest('.dropdown-content')) {
+                document.getElementById("unittypeoptionsfield").classList.remove("dropdownshown");
+            }
+            if (!event.target.matches('#unitstatusfilterInput') && !event.target.closest('.dropdown-content')) {
+                document.getElementById("unitstatusoptionsfield").classList.remove("dropdownshown");
+            }
+        }
+
+        function handleInputChange(priceInputvalue, rangeInputvalue, rangevalue) {
+            for (let i = 0; i < priceInputvalue.length; i++) {
+                priceInputvalue[i].addEventListener("input", e => {
+                    // Parse min and max values of the range input
+                    let minp = parseInt(priceInputvalue[0].value);
+                    let maxp = parseInt(priceInputvalue[1].value);
+                    let diff = maxp - minp;
+
+                    if (minp > maxp - priceGap) {
+                        priceInputvalue[0].value = maxp - priceGap;
+                        minp = maxp - priceGap;
+
+                        if (minp < 0) {
+                            priceInputvalue[0].value = 0;
+                            minp = 0;
+                        }
+                    }
+
+                    // Check if the price gap is met and max price is within the range
+                    if (diff >= priceGap && maxp <= rangeInputvalue[1].max) {
+                        if (e.target.className === "min-input") {
+                            rangeInputvalue[0].value = minp;
+                            let value1 = rangeInputvalue[0].max;
+                            rangevalue.style.left = `${(minp / value1) * 100}%`;
+                        } else {
+                            rangeInputvalue[1].value = maxp;
+                            let value2 = rangeInputvalue[1].max;
+                            rangevalue.style.right = `${100 - (maxp / value2) * 100}%`;
+                        }
+                    }
+                });
+
+                // Add event listeners to range input elements
+                rangeInputvalue[i].addEventListener("input", e => {
+                    let minVal = parseInt(rangeInputvalue[0].value);
+                    let maxVal = parseInt(rangeInputvalue[1].value);
+                    let diff = maxVal - minVal;
+
+                    // Check if the price gap is exceeded
+                    if (diff < priceGap) {
+                        // Check if the input is the min range input
+                        if (e.target.className === "min-range") {
+                            rangeInputvalue[0].value = maxVal - priceGap;
+                        } else {
+                            rangeInputvalue[1].value = minVal + priceGap;
+                        }
+                    } else {
+                        // Update price inputs and range progress
+                        priceInputvalue[0].value = minVal;
+                        priceInputvalue[1].value = maxVal;
+                        rangevalue.style.left = `${(minVal / rangeInputvalue[0].max) * 100}%`;
+                        rangevalue.style.right = `${100 - (maxVal / rangeInputvalue[1].max) * 100}%`;
+                    }
+                });
+            }
+        }
+
+        // Find all sets of input elements
+        const allPriceInputValues = document.querySelectorAll(".price-input input");
+        const allRangeInputValues = document.querySelectorAll(".range-input input");
+        const allRangeValues = document.querySelectorAll(".slider-container .price-slider");
+
+        // Set the price gap
+        let priceGap = 1;
+
+        // Handle input changes for all sets of fields
+        for (let i = 0; i < allPriceInputValues.length; i += 2) {
+            handleInputChange(
+                [allPriceInputValues[i], allPriceInputValues[i + 1]],
+                [allRangeInputValues[i], allRangeInputValues[i + 1]],
+                allRangeValues[i / 2]
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>

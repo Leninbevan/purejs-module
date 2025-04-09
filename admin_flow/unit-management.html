@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/unitmanagement.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+
+</head>
+
+<body class="unit-management" data-bs-spy="scroll" data-bs-target="#navmenu">
+
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <nav class="navbar navbar-white bg-white  fixed-top">
+      <div class="container-fluid unitmanage-headercontent">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">WASL Operations </a>
+        <div class="offcanvas offcanvas-end bg-white " tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <div class="img-wasl"><img src="images/wasl-logo.png" width="75%"></div>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+
+            <div class="user-profile mb-3">
+              <div class="profile-name"><a href="#">Tarun Rathore</a></div>
+              <div class="profile-role">Admin</div>
+            </div>
+
+            <div class="navbar-menu-subhead mb-2">Main</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item mb-2">
+                <a class="nav-link  dashboard" aria-current="page" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link  cust-manage" href="customer-management.html">Customer Management</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link active unitManage" href="unit-management.html">Unit Management</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link regisList" href="customer-registration.html">Registration List</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a class="nav-link scanQr" href="#">Scan QR</a>
+              </li>
+            </ul>
+            <hr>
+            <div class="navbar-menu-subhead mb-2">Event</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+              <li class="nav-item">
+                <a class="nav-link Eventicon" href="create-event.html">Create Event</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link manageEvent" href="event-list.html">Manage Events</a>
+              </li>
+            </ul>
+            <hr>
+            <div class="navbar-menu-subhead mb-2">User Management</div>
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link  userManage" aria-current="page" href="user-management.html">User Management</a>
+              </li>
+            </ul>
+            <strong>
+              <hr>
+            </strong>
+            <div class="user-logout">
+              <span><a href="#">Logout User</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="unitmanage-headersubcontent">
+          <div class="unitmanage-selectfield"><select class="form-select unitmanage-headerselect"
+              aria-label="Default select example">
+              <option selected>WASL Gardenia Towerhouse</option>
+              <option value="1">WASL 1 </option>
+              <option value="2">WASL 2</option>
+              <option value="3">WASL 3</option>
+            </select></div>
+          <div class="unitmanage-notifyfield">
+            <img src="images/bell-icon.png" class="notify-alerticon" alt="notify" />
+            <div class="unitmanage-notifymessage"></div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header> <!-- End Header -->
+
+
+  <main id="main" class="main">
+
+    <section class="section pagetitle unitmanage-container">
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-11">
+          <div class="row">
+
+            <!-- Total Events -->
+            <div class="col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <span class="card-headtitle"><img src="images/successicon.png" class="unitmanage-cardicon"> Available
+                    Units</span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-5">
+                      <h4>200</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!--End -->
+
+            <!-- Total Customers Registered -->
+            <div class="col-md-3">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <span class="card-headtitle"><img src="images/Buildings.png" class="unitmanage-cardicon"> Sold Units
+                  </span>
+
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>150</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End -->
+
+            <!-- Customers Card -->
+            <div class="col-md-3">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <span class="card-headtitle"><img src="images/timer50-icon.png" class="unitmanage-cardicon"> Booked
+                    Units </span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>32</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+
+            <!-- Customers Card -->
+            <div class="col-md-3">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <span class="card-headtitle"><img src="images/PauseCircle.png" class="unitmanage-cardicon"> On Hold
+                    Units</span>
+                  <div class="d-flex align-items-center">
+                    <div class="ps-5">
+                      <h4>43</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-11">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mt-3 pt-3 mb-4 float-start">Unit Management</h5>
+
+              <div class="d-flex userSearch-form justify-content-end mt-4">
+                <div class="seachfield-container">
+                  <img src="images/search.png" class="unitmanage-serachicon" alt="search" />
+                  <input class="form-control user-search float-end" id="SearchInput" type="text" placeholder="Search"
+                    size="60" autocomplete="off">
+                </div>
+
+                <!--  <div class="table-filter" ><a href="#">Apply filter</a></div> -->
+
+                <div class="unitmanage-filterarea"><button class="unitmanage-applyfilter" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions"><img src="images/filter.png" alt="filter" /> Apply
+                    filter</button>
+                </div>
+                <div class="export-data"> <a href="#" onclick="exportTableToCSV('userTable', 'export.csv')">Export</a>
+                </div>
+              </div>
+
+
+
+
+
+
+              <!-- Table with stripped rows -->
+              <table class="table table-striped table-responsive customer-management unitmanage-tablefield"
+                id="userTable">
+                <thead>
+                  <tr class="unitmanage-switchheader">
+                    <th class="">
+                      <div class="tablink active" onclick="filterData('All')">All</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('OnHold')">OnHold</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('Available')">Available</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('Booked')">Booked</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('Sold')">Sold</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('Reserved')">Reserved</div>
+                    </th>
+                    <th class="">
+                      <div class="tablink" onclick="filterData('Blocked')">Blocked</div>
+                    </th>
+                    <th colspan="3" class="text-center unitmanage-updateprice"> <img class="unitmanage-pencilicon"
+                        src="images/Pencil.png" alt="edit" /> <a href="unitpricechange.html"> Update Unit Price </a></th>
+                  </tr>
+
+
+
+
+                  <tr class="unitmanage-staticheader">
+                    <th> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+                    <th>Sl no</th>
+                    <th>Building Name</th>
+                    <th>Unit No.</th>
+                    <th>Unit Type</th>
+                    <th>No of Rooms</th>
+                    <th>Floor No.</th>
+                    <th>Total Area</th>
+                    <th>Unit Status</th>
+                    <th>On Hold Duration</th>
+                    <th>Selling Price</th>
+                    <th>Downpayment</th>
+                    <th>Sales Agent</th>
+                  </tr>
+                </thead>
+                <tbody class="unitmanage-tablebody" data-testid="unitList" id="myTable">
+                  <tr class="filterable" data-category="Available">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>1</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-available">Available</button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+
+                  </tr>
+                  <tr class="filterable" data-category="Available">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>2</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-available">Available</button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+
+                  </tr>
+
+
+                  <tr class="filterable" data-category="OnHold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>3</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td>
+                      <button class="btn btn-onhold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ON HOLD 
+                      </button>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-menutitle">Choose the status you want to update for the unit :</div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option1-1" value="Available">
+                          <label for="option1-1" class="button-label"><span class="btn btn-available"> Available
+                            </span></label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option1-2" value="Booked">
+                          <label for="option1-2" class="button-label"><span class="btn btn-booked">Booked</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option1-3" value="Reserved">
+                          <label for="option1-3" class="button-label"><span class="btn btn-reserved">Reserved</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option1-4" value="OnHold">
+                          <label for="option1-4" class="button-label"><span class="btn btn-onhold">On Hold</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option1-5" value="Blocked">
+                          <label for="option1-5" class="button-label"><span class="btn btn-blocked">Blocked</span>
+                          </label>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-outline-dark statusbutton" onclick="changeStatus(this)">
+                            Change Status </button>
+                          <!-- <button type="button" class="btn btn-outline-dark statusbutton" id="submitButton">Change Status</button> -->
+                        </div>
+                      </div>
+
+                    </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="Available">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>4</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-available">Available </button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="Booked">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>5</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-booked">Booked </button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="Reserved">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>6</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>2nd Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-reserved">Reserved</button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="OnHold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>7</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td>
+                      <button class="btn btn-onhold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ON HOLD
+                      </button>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-menutitle">Choose the status you want to update for the unit :</div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option2-1" value="Available">
+                          <label for="option2-1" class="button-label"><span class="btn btn-available"> Available
+                            </span></label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option2-2" value="Booked">
+                          <label for="option2-2" class="button-label"><span class="btn btn-booked">Booked</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option2-3" value="Reserved">
+                          <label for="option2-3" class="button-label"><span class="btn btn-reserved">Reserved</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option2-4" value="OnHold">
+                          <label for="option2-4" class="button-label"><span class="btn btn-onhold">On Hold</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option2-5" value="Blocked">
+                          <label for="option2-5" class="button-label"><span class="btn btn-blocked">Blocked</span>
+                          </label>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-outline-dark statusbutton"
+                            onclick="changeStatus(this)">Change Status</button>
+                        </div>
+                      </div>
+                    </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="OnHold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>8</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>3rd Floor</td>
+                    <td>114</td>
+                    <td>
+                      <button class="btn btn-onhold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ON HOLD
+                      </button>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-menutitle">Choose the status you want to update for the unit :</div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option3-1" value="Available">
+                          <label for="option3-1" class="button-label"><span class="btn btn-available"> Available
+                            </span></label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option3-2" value="Booked">
+                          <label for="option3-2" class="button-label"><span class="btn btn-booked">Booked</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option3-3" value="Reserved">
+                          <label for="option3-3" class="button-label"><span class="btn btn-reserved">Reserved</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option3-4" value="OnHold">
+                          <label for="option3-4" class="button-label"><span class="btn btn-onhold">On Hold</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option3-5" value="Blocked">
+                          <label for="option3-5" class="button-label"><span class="btn btn-blocked">Blocked</span>
+                          </label>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-outline-dark statusbutton" onclick="changeStatus(this)">
+                            Change Status </button>
+                        </div>
+                      </div>
+
+                    </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="OnHold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>9</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>3rd Floor</td>
+                    <td>114</td>
+                    <td>
+                      <button class="btn btn-onhold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ON HOLD
+                      </button>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-menutitle">Choose the status you want to update for the unit :</div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option4-1" value="Available">
+                          <label for="option4-1" class="button-label"><span class="btn btn-available"> Available
+                            </span></label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option4-2" value="Booked">
+                          <label for="option4-2" class="button-label"><span class="btn btn-booked">Booked</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option4-3" value="Reserved">
+                          <label for="option4-3" class="button-label"><span class="btn btn-reserved">Reserved</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option4-4" value="OnHold">
+                          <label for="option4-4" class="button-label"><span class="btn btn-onhold">On Hold</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option4-5" value="Blocked">
+                          <label for="option4-5" class="button-label"><span class="btn btn-blocked">Blocked</span>
+                          </label>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-outline-dark statusbutton" onclick="changeStatus(this)">
+                            Change Status </button>
+                          <!-- <button type="button" class="btn btn-outline-dark statusbutton" id="submitButton">Change Status</button> -->
+                        </div>
+                      </div>
+                    </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="OnHold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>10</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td>
+                      <button class="btn btn-onhold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ON HOLD
+                      </button>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-menutitle">Choose the status you want to update for the unit :</div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option5-1" value="Available">
+                          <label for="option5-1" class="button-label"><span class="btn btn-available"> Available
+                            </span></label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option5-2" value="Booked">
+                          <label for="option5-2" class="button-label"><span class="btn btn-booked">Booked</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option5-3" value="Reserved">
+                          <label for="option5-3" class="button-label"><span class="btn btn-reserved">Reserved</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option5-4" value="OnHold">
+                          <label for="option5-4" class="button-label"><span class="btn btn-onhold">On Hold</span>
+                          </label>
+                        </div>
+                        <div class="dropdown-buttonarea">
+                          <input type="radio" class="dropdown-checkbox" name="options" id="option5-5" value="Blocked">
+                          <label for="option5-5" class="button-label"><span class="btn btn-blocked">Blocked</span>
+                          </label>
+                        </div>
+                        <div>
+                          <button type="button" class="btn btn-outline-dark statusbutton" onclick="changeStatus(this)">
+                            Change Status </button>
+                          <!-- <button type="button" class="btn btn-outline-dark statusbutton" id="submitButton">Change Status</button> -->
+                        </div>
+                      </div>
+                    </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+
+                  <tr class="filterable" data-category="Sold">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>11</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-sold">Sold </button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+
+                  </tr>
+                  <tr class="filterable" data-category="Blocked">
+                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                    <td>12</td>
+                    <td>Park View Residences A</td>
+                    <td>11976</td>
+                    <td><button type="button" class="btn btn-unit-type d-flex align-items-center" data-target="#unitmanagement-planModal" data-toggle="modal">Type 1A - 4 <img
+                          class="unitmanage-eyeicon" src="images/Eye.png" alt="view" /> </button></td>
+                    <td>3</td>
+                    <td>1st Floor</td>
+                    <td>114</td>
+                    <td><button type="button" class="btn btn-blocked">Blocked</button> </td>
+                    <td> 8 m </td>
+                    <td>AED 2,100,200 </td>
+                    <td>AED 330,000 </td>
+                    <td>Abdul Khalid </td>
+                  </tr>
+                  <tr id="noRecordTR" class='notfound'>
+                    <td colspan='10'>No Records Found</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <!-- End Table with stripped rows -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+  <div class="offcanvas offcanvas-end unitmanage-filtercontainer" data-bs-scroll="true" tabindex="-1"
+    id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <div class="unitmanage-headercontent d-flex flex-column">
+        <div class="unitmanage-headertitle d-flex">Apply Filters <button type="button" class="btn-close"
+            data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+        <div class="unitmanage-subheader"> Select filters of your choice to see the right property. </div>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <div class="unitmanage-multiselect">
+
+        <div class="unitmanage-title">
+          SALES AGENT NAME
+        </div>
+
+        <div class="dropdown">
+          <div id="salesagentdropdown-content" class="dropdown-content dropdown-index">
+            <input type="text" id="salesagentfilterInput" required onfocus="showDropdown('salesagentoptionsfield')"
+              onkeyup="filterFunction('salesagentfilterInput','salesagentdropdown-content')" placeholder="Search..">
+            <div class="optionsfield" id="salesagentoptionsfield">
+              <label>Spa <input class="form-check-input salesagentoptions option" type="checkbox" value="Spa"
+                  onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"> </label>
+              <label>BBQ <input class="form-check-input  salesagentoptions option" type="checkbox" value="BBQ"
+                  onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"> </label>
+              <label> Football court <input class="form-check-input salesagentoptions option" type="checkbox"
+                  value="Football Court" onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+              </label>
+              <label> Badminton <input class="form-check-input salesagentoptions option" type="checkbox"
+                  value="Badminton" onclick="updateSelected('salesagentoptions', 'salesagentselected-options')">
+              </label>
+              <label> Theatre <input class="form-check-input salesagentoptions option" type="checkbox" value="Theatre"
+                  onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"></label>
+              <label> Mall <input class="form-check-input salesagentoptions option" type="checkbox" value="Mall"
+                  onclick="updateSelected('salesagentoptions', 'salesagentselected-options')"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="eventdetails-paymentoptions">
+          <div id="salesagentselected-options" class="selected-options" data-scroll-container>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-multiselect">
+
+        <div class="unitmanage-title">
+          BUILDING NAME
+        </div>
+
+        <div class="dropdown">
+          <div id="buildingdropdown-content" class="dropdown-content dropdown-index">
+            <input type="text" id="buildingfilterInput" required onfocus="showDropdown('buildingoptionsfield')"
+              onkeyup="filterFunction('buildingfilterInput','buildingdropdown-content')" placeholder="Search..">
+            <div class="optionsfield" id="buildingoptionsfield">
+              <label>Spa <input class="form-check-input buildingoptions option" type="checkbox" value="Spa"
+                  onclick="updateSelected('buildingoptions', 'buildingselected-options')"> </label>
+              <label>BBQ <input class="form-check-input  buildingoptions option" type="checkbox" value="BBQ"
+                  onclick="updateSelected('buildingoptions', 'buildingselected-options')"> </label>
+              <label> Football court <input class="form-check-input buildingoptions option" type="checkbox"
+                  value="Football Court" onclick="updateSelected('buildingoptions', 'buildingselected-options')">
+              </label>
+              <label> Badminton <input class="form-check-input buildingoptions option" type="checkbox" value="Badminton"
+                  onclick="updateSelected('buildingoptions', 'buildingselected-options')"> </label>
+              <label> Theatre <input class="form-check-input buildingoptions option" type="checkbox" value="Theatre"
+                  onclick="updateSelected('buildingoptions', 'buildingselected-options')"></label>
+              <label> Mall <input class="form-check-input buildingoptions option" type="checkbox" value="Mall"
+                  onclick="updateSelected('buildingoptions', 'buildingselected-options')"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="eventdetails-paymentoptions">
+          <div id="buildingselected-options" class="selected-options" data-scroll-container>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-multiselect">
+
+        <div class="unitmanage-title">
+          UNIT TYPE
+        </div>
+
+        <div class="dropdown">
+          <div id="unittypedropdown-content" class="dropdown-content dropdown-index">
+            <input type="text" id="unittypefilterInput" required onfocus="showDropdown('unittypeoptionsfield')"
+              onkeyup="filterFunction('unittypefilterInput','unittypedropdown-content')" placeholder="Search..">
+            <div class="optionsfield" id="unittypeoptionsfield">
+              <label>Spa <input class="form-check-input unittypeoptions option" type="checkbox" value="Spa"
+                  onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"> </label>
+              <label>BBQ <input class="form-check-input  unittypeoptions option" type="checkbox" value="BBQ"
+                  onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"> </label>
+              <label> Football court <input class="form-check-input unittypeoptions option" type="checkbox"
+                  value="Football Court" onclick="updateSelected('unittypeoptions', 'unittypeselected-options')">
+              </label>
+              <label> Badminton <input class="form-check-input unittypeoptions option" type="checkbox" value="Badminton"
+                  onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"> </label>
+              <label> Theatre <input class="form-check-input unittypeoptions option" type="checkbox" value="Theatre"
+                  onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"></label>
+              <label> Mall <input class="form-check-input unittypeoptions option" type="checkbox" value="Mall"
+                  onclick="updateSelected('unittypeoptions', 'unittypeselected-options')"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="eventdetails-paymentoptions">
+          <div id="unittypeselected-options" class="selected-options" data-scroll-container>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-slider">
+        <div class="eventmanage-slidertitle"> NO OF ROOMS </div>
+        <div class="eventmanage-sliderarea">
+          <div class="middle">
+            <div class="multi-range-slider">
+              <input type="range" oninput="dragValue('min','filter-minrooms','filter-maxrooms','minroom')"
+                id="filter-minrooms" min="1" max="20" value="5">
+              <input type="range" id="filter-maxrooms"
+                oninput="dragValue('max','filter-minrooms','filter-maxrooms','maxroom')" min="1" max="20" value="15">
+
+              <div class="slider roomslider">
+                <div class="track roomtrack"></div>
+                <div class="range roomrange"></div>
+                <div class="thumb left roomthumbleft"></div>
+                <div class="thumb right roomthumbright"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eventmanage-sliderminmax">
+          <div class="eventmanage-contentarea">
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Min Room</div>
+              <div class="bottomlabel"><input type="number" id="minroom" class="form-control rangedata" value="5"
+                  required></div>
+            </div>
+            <div>to</div>
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Max Room</div>
+              <div class="bottomlabel"><input type="number" id="maxroom" class="form-control rangedata" value="15"
+                  required></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-slider">
+        <div class="eventmanage-slidertitle">SUIT AREA</div>
+        <div class="eventmanage-sliderarea">
+          <div class="middle">
+            <div class="multi-range-slider">
+              <input type="range" oninput="dragValue('min','filter-minsuit','filter-maxsuit','minsuit')"
+                id="filter-minsuit" min="1" max="1000" value="250">
+              <input type="range" id="filter-maxsuit"
+                oninput="dragValue('max','filter-minsuit','filter-maxsuit','maxsuit')" min="1" max="1000" value="750">
+
+              <div class="slider suitslider">
+                <div class="track suittrack"></div>
+                <div class="range suitrange"></div>
+                <div class="thumb left suitthumbleft"></div>
+                <div class="thumb right suitthumbright"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eventmanage-sliderminmax">
+          <div class="eventmanage-contentarea">
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Min Area</div>
+              <div class="bottomlabel"><input type="text" class="form-control rangedata" id="minsuit" value="250"
+                  required></div>
+            </div>
+            <div>to</div>
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Max Area</div>
+              <div class="bottomlabel"><input type="text" class="form-control rangedata" id="maxsuit" value="750"
+                  required></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-slider">
+        <div class="eventmanage-slidertitle">TOTAL AREA</div>
+        <div class="eventmanage-sliderarea">
+          <div class="middle">
+            <div class="multi-range-slider">
+              <input type="range" oninput="dragValue('min','filter-minarea','filter-maxarea','minarea')"
+                id="filter-minarea" min="1" max="1000" value="250">
+              <input type="range" id="filter-maxarea"
+                oninput="dragValue('max','filter-minarea','filter-maxarea','maxarea')" min="1" max="1000" value="750">
+
+              <div class="slider areaslider">
+                <div class="track areatrack"></div>
+                <div class="range arearange"></div>
+                <div class="thumb left areathumbleft"></div>
+                <div class="thumb right areathumbright"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eventmanage-sliderminmax">
+          <div class="eventmanage-contentarea">
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Min Area</div>
+              <div class="bottomlabel"><input type="text" class="form-control rangedata" id="minarea" value="250"
+                  required></div>
+            </div>
+            <div>to</div>
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Max Area</div>
+              <div class="bottomlabel"><input type="text" class="form-control rangedata" id="maxarea" value="750"
+                  required></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-slider">
+        <div class="eventmanage-slidertitle">PRICE RANGE</div>
+        <div class="eventmanage-sliderarea">
+          <div class="middle">
+            <div class="multi-range-slider">
+              <input type="range" oninput="dragValue('min','filter-minprice','filter-maxprice','minprice')"
+                id="filter-minprice" min="100000" max="1000000" value="350000" step="5000">
+              <input type="range" id="filter-maxprice"
+                oninput="dragValue('max','filter-minprice','filter-maxprice','maxprice')" min="100000" max="1000000"
+                value="850000" step="5000">
+
+              <div class="slider priceslider">
+                <div class="track pricetrack"></div>
+                <div class="range pricerange"></div>
+                <div class="thumb left pricethumbleft"></div>
+                <div class="thumb right pricethumbright"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eventmanage-sliderminmax">
+          <div class="eventmanage-contentarea">
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Min AED</div>
+              <div class="bottomlabel"><input type="text" id="minprice" class="form-control rangedata" value="350000"
+                  required></div>
+            </div>
+            <div>to</div>
+            <div class=" d-flex flex-column">
+              <div class="toplabel">Max AED</div>
+              <div class="bottomlabel"><input type="text" id="maxprice" class="form-control rangedata" value="850000"
+                  required></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unitmanage-buttoncontainer">
+        <button type="button" class="btn btn-outline-dark filterbutton">Clear All</button>
+        <button type="button" class="btn btn-dark filterbutton">Apply</button>
+      </div>
+    </div>
+  </div>
+
+     <!-- Modal -->
+
+     <div class="modal fade" id="unitmanagement-planModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered unitmanagement-planModal" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <ul class="nav nav-tabs" id="myTab" role="tablist">
+             <li class="nav-item">
+               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                 aria-selected="true"><img src="./images/151-studying 1.png" alt="plan" width="15"><span>Master
+                   Plan</span></a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                 aria-selected="false"><img src="./images/blueprint 1.png" alt="plan" width="15"><span>Floor
+                   Plan</span></a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                 aria-selected="false"><img src="./images/town (1) 1.png" alt="plan" width="15"><span>Unit
+                   Plan</span></a>
+             </li>
+           </ul>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+               <div>Tower A, Unit Types:</div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                 <label class="form-check-label" for="flexRadioDefault1">
+                   1A-4
+                 </label>
+               </div>
+               <div class="d-flex roomsDiv">
+                 <div class="room-container">
+                   <div>Bedrooms</div>
+                   <img src="./images/Hotel Double Bed 4 (1).png" alt="bedroom" class="roomImg">
+                   1
+                 </div>
+                 <div>
+                   <div>
+                     <div>Bathrooms</div>
+                     <img src="./images/shower.png" alt="shower" class="showerImg">
+                     2
+                   </div>
+                 </div>
+                 <div>
+                   <div>
+                     <div>Size</div>
+                     <img src="./images/room-size.png" alt="bedroom" class="roomImg">
+                     654 sq ft
+                   </div>
+                 </div>
+               </div>
+               <div class="blueprintDiv"><img src="./images/blueprint.png" alt="blueprint" class="fullBlueprintImg">
+               </div>
+             </div>
+             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+               <div>Tower A, Unit Types:</div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                 <label class="form-check-label" for="flexRadioDefault1">
+                   1A-4
+                 </label>
+               </div>
+               <div class="d-flex roomsDiv">
+                 <div class="room-container">
+                   <div>Bedrooms</div>
+                   <img src="./images/Hotel Double Bed 4 (1).png" alt="bedroom" class="roomImg">
+                   1
+                 </div>
+                 <div>
+                   <div>
+                     <div>Bathrooms</div>
+                     <img src="./images/shower.png" alt="shower" class="showerImg">
+                     2
+                   </div>
+                 </div>
+                 <div>
+                   <div>
+                     <div>Size</div>
+                     <img src="./images/room-size.png" alt="bedroom" class="roomImg">
+                     654 sq ft
+                   </div>
+                 </div>
+               </div>
+               <div class="blueprintDiv"><img src="./images/blueprint.png" alt="blueprint" class="fullBlueprintImg">
+               </div>
+             </div>
+             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+               <div>Tower A, Unit Types:</div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                 <label class="form-check-label" for="flexRadioDefault1">
+                   1A-4
+                 </label>
+               </div>
+               <div class="d-flex roomsDiv">
+                 <div class="room-container">
+                   <div>Bedrooms</div>
+                   <img src="./images/Hotel Double Bed 4 (1).png" alt="bedroom" class="roomImg">
+                   1
+                 </div>
+                 <div>
+                   <div>
+                     <div>Bathrooms</div>
+                     <img src="./images/shower.png" alt="shower" class="showerImg">
+                     2
+                   </div>
+                 </div>
+                 <div>
+                   <div>
+                     <div>Size</div>
+                     <img src="./images/room-size.png" alt="bedroom" class="roomImg">
+                     654 sq ft
+                   </div>
+                 </div>
+               </div>
+               <div class="blueprintDiv"><img src="./images/blueprint.png" alt="blueprint" class="fullBlueprintImg">
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  
+   <!-- Modal End -->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- <script src="js/DataTables/datatables.min.js"></script> -->
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+  <script>
+    function showDropdown(data) {
+      const unhideOptions = ['salesagentoptionsfield', 'buildingoptionsfield', 'unittypeoptionsfield'];
+      const removeOptions = unhideOptions.filter((item) => item !== data);
+      removeOptions.forEach((list) => {
+        document.getElementById(list).classList.remove("dropdownshown");
+      })
+      document.getElementById(data).classList.add("dropdownshown");
+    }
+    // function hideDropdown(data) {
+
+    //   setTimeout(function () {
+    //     document.getElementById(data).classList.remove("dropdownshown");
+    //   }, 200);
+    // }
+
+
+
+
+    function updateSelected(fieldoptions, displayedoptions) {
+      var checkboxes = document.getElementsByClassName(fieldoptions);
+      var selectedOptionsDiv = document.getElementById(displayedoptions);
+
+      // Clear all dynamically added children
+      selectedOptionsDiv.innerHTML = '';
+
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          (function (checkbox) {
+            var optionDiv = document.createElement('div');
+            optionDiv.className = 'selected-option';
+            optionDiv.textContent = checkbox.value;
+
+            optionDiv.style.color = '#ffffff';
+
+            var removeIconDiv = document.createElement('div');
+            removeIconDiv.className = 'remove-icon';
+            removeIconDiv.textContent = 'X';
+
+            removeIconDiv.style.color = '#ffffff';
+            removeIconDiv.style.cursor = 'pointer';
+            removeIconDiv.style.marginLeft = '10px';
+
+            // Add onclick event to remove the selected option and uncheck the checkbox
+            removeIconDiv.onclick = function () {
+              optionDiv.remove();
+              checkbox.checked = false;
+            };
+
+            optionDiv.appendChild(removeIconDiv);
+            selectedOptionsDiv.appendChild(optionDiv);
+          })(checkboxes[i]);
+        }
+      }
+    }
+
+    function enableDragToScroll(container) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        container.classList.add('active');
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+        container.style.cursor = 'grabbing';
+      });
+
+      container.addEventListener('mouseleave', () => {
+        isDown = false;
+        container.classList.remove('active');
+        container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mouseup', () => {
+        isDown = false;
+        container.classList.remove('active');
+        container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 3;
+        container.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    document.querySelectorAll('[data-scroll-container]').forEach(container => {
+      enableDragToScroll(container);
+    });
+
+    window.onclick = function (event) {
+      if (!event.target.matches('#salesagentfilterInput') && !event.target.closest('.dropdown-content')) {
+        document.getElementById("salesagentoptionsfield").classList.remove("dropdownshown");
+      }
+      if (!event.target.matches('#buildingfilterInput') && !event.target.closest('.dropdown-content')) {
+        document.getElementById("buildingoptionsfield").classList.remove("dropdownshown");
+      }
+      if (!event.target.matches('#unittypefilterInput') && !event.target.closest('.dropdown-content')) {
+        document.getElementById("unittypeoptionsfield").classList.remove("dropdownshown");
+      }
+    }
+
+
+    function dragValue(ratio, minrange, maxrange, inputfield) {
+      var inputLeft = document.getElementById(minrange);
+      var inputRight = document.getElementById(maxrange);
+      var containerArea = inputfield.slice(3);
+      const slider = "." + containerArea + "slider";
+      const leftThumb = "." + containerArea + "thumbleft";
+      const rightThumb = "." + containerArea + "thumbright";
+      const elementrange = "." + containerArea + "range";
+
+      var thumbLeft = document.querySelector(slider + ">" + leftThumb);
+
+      var thumbRight = document.querySelector(slider + ">" + rightThumb);
+
+      var range = document.querySelector(slider + ">" + elementrange);
+
+      if (ratio === 'min') {
+        setLeftValue(inputfield);
+      }
+      else if (ratio === 'max') {
+        setRightValue(inputfield);
+      }
+
+      function setLeftValue(inputfield) {
+
+        var _this = inputLeft,
+          min = parseInt(_this.min),
+          max = parseInt(_this.max);
+
+        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+
+        var percent = Math.round(((_this.value - min) / (max - min)) * 100);
+        document.getElementById(inputfield).setAttribute('value', _this.value);
+
+        thumbLeft.style.left = percent + "%";
+        range.style.left = percent + "%";
+      }
+
+
+      function setRightValue(inputfield) {
+        var _this = inputRight,
+          min = parseInt(_this.min),
+          max = parseInt(_this.max);
+
+        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+
+        var percent = Math.round(((_this.value - min) / (max - min)) * 100);
+        document.getElementById(inputfield).setAttribute('value', _this.value);
+        thumbRight.style.right = (100 - percent) + "%";
+        range.style.right = (100 - percent) + "%";
+      }
+      // inputLeft.addEventListener("input", setLeftValue);
+      // inputRight.addEventListener("input", setRightValue);
+
+      inputLeft.addEventListener("mouseover", function () {
+        thumbLeft.classList.add("hover");
+      });
+      inputLeft.addEventListener("mouseout", function () {
+        thumbLeft.classList.remove("hover");
+      });
+      inputLeft.addEventListener("mousedown", function () {
+        thumbLeft.classList.add("active");
+      });
+      inputLeft.addEventListener("mouseup", function () {
+        thumbLeft.classList.remove("active");
+      });
+
+      inputRight.addEventListener("mouseover", function () {
+        thumbRight.classList.add("hover");
+      });
+      inputRight.addEventListener("mouseout", function () {
+        thumbRight.classList.remove("hover");
+      });
+      inputRight.addEventListener("mousedown", function () {
+        thumbRight.classList.add("active");
+      });
+      inputRight.addEventListener("mouseup", function () {
+        thumbRight.classList.remove("active");
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var labels = document.querySelectorAll('.dropdown-menu .dropdown-buttonarea label');
+      labels.forEach(function (label) {
+        label.addEventListener('click', function (event) {
+          event.stopPropagation();
+        });
+      });
+    });
+
+    function changeStatus(button) {
+      var tr = button.closest('tr'); // Get the closest <tr> element
+      var selectedOption = tr.querySelector('input[name="options"]:checked'); // Get the selected radio button
+      var selectedDropdown = button.closest('.dropdown-menu');
+      console.log('selected dropdown', selectedDropdown);
+      if (selectedOption) {
+        var newCategory = selectedOption.value;
+        tr.setAttribute('data-category', newCategory);
+        var btn = tr.querySelector('.dropdown-toggle');
+        btn.classList.remove('btn-onhold');
+        btn.classList.add(`btn-${newCategory.toLowerCase()}`);
+        btn.innerHTML = newCategory;
+        if (newCategory.toLowerCase() !== 'onhold') {
+          btn.classList.remove('dropdown-toggle'); // only this classname gets removed 
+          selectedDropdown.remove();  // remove that element from dom       
+        }
+        // else if (newCategory.toLowerCase() === 'onhold') {
+          // if any method need for onhold added here 
+        // }
+      }
+      else {
+        // console.log("No option selected.");
+      }
+    }
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>

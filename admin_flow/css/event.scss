@@ -1,0 +1,1170 @@
+$title-font: 32px;
+$label-font: 16px;
+$placeholder-font: 14px;
+$input-font: 16px;
+$message-font: 12px;
+
+body{
+    position: relative;
+}
+
+.eventdetails-container {
+    padding: 0px 10px 0px 32px !important;
+
+    .eventdetails-formdetails {
+        margin-bottom: 32px;
+    }
+
+    .eventdetails-switchbar {
+        width: 100%;
+        height: 37px;
+        border-bottom: 1px solid #C0CBCF;
+        margin-bottom: 24px;
+        column-gap: 10px;
+
+        .eventdetails-switchtitle {
+            width: 215px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .eventdetails-activebottom {
+            position: relative;
+
+            span {
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+                width: 100%;
+                height: 3px;
+                border-radius: 9px 9px 0px 0px;
+                background-color: #1C190E;
+                transition: 4s ease linear;
+            }
+        }
+    }
+
+    .eventdetails-formcontainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        row-gap: 24px;
+
+        .eventdetails-titlefieldbox {
+            border: 1px solid #E4E4DC;
+            border-radius: 16px;
+            width: 100%;
+            height: auto;
+            min-height: 707px;
+            padding: 19px 16px;
+            row-gap: 23px;
+
+            .eventdetails-titleevent {
+                height: 348px;
+                row-gap: 25px;
+
+                .eventdetails-titleinput {
+                    height: 89px;
+
+                    .eventdetails-eventnameinput {
+                        width: 100%;
+                        height: 51px;
+                    }
+                }
+
+                .eventdetails-projectbanner {
+                    height: 113px;
+
+                    .eventdetails-uploadimagefield {
+                        font-size: $message-font;
+                    }
+                }
+
+                .eventdetails-eventlocation {
+                    height: 96px;
+
+                    .eventdetails-locationsubmit {
+                        position: relative;
+                        width: 100%;
+                        height: 52px;
+
+                        .eventdetails-locationbutton {
+                            position: absolute;
+                            top: 50%;
+                            right: -110px;
+                            transform: translate(-50%, -50%);
+                            height: 40px;
+                            width: 240px;
+                            background-color: #E4E4DC;
+                            border-radius: 8px !important;
+                            border: 1px solid #E4E4DC !important;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            column-gap: 5px;
+
+                            .eventdetails-locationicon {
+                                height: 16px;
+                                width: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .eventdetails-eventdescription {
+                height: 138px;
+
+                .eventdetails-eventdescriptiontext {
+                    height: 110px;
+                    resize: none;
+                }
+            }
+
+            .eventdetails-pointstonote {
+                height: auto;
+                min-height: 137px;
+
+                .eventdetails-multiplefields {
+                    row-gap: 10px;
+
+                    .eventdetails-addkeypoint {
+                        height: 55px;
+                    }
+                }
+
+                .eventdetails-buttoncontainer {
+                    display: flex;
+                    align-items: end;
+                    column-gap: 15px;
+
+                    .eventdetails-deletepoint {
+                        display: none;
+                        border: 1px solid red;
+                        padding: 6px 12px;
+                        background-color: #ffffff;
+                        border-radius: 0.375rem;
+                        color: red;
+
+                    }
+                }
+
+            }
+        }
+
+        .eventdetails-reserveagreement {
+            border: 1px solid #E4E4DC;
+            border-radius: 16px;
+            padding: 16px 16px 32px 16px;
+            width: 100%;
+            min-height: 182px;
+            height: auto;
+
+            .eventdetails-agreementcontainer {
+                min-height: 134px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                row-gap: 20px;
+
+                .eventdetails-reservationtitle {
+                    height: 32px;
+                    border-bottom: 1px solid #E4E4DC;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .eventdetails-reservationselectfield {
+                    min-height: 82px;
+                    column-gap: 25px;
+
+                    .eventdetails-templatetype {
+                        .eventdetails-templateselect {
+                            width: 350px;
+                            height: 51px;
+                            border-radius: 12px;
+                            border-color: #8D8D87;
+                        }
+                    }
+                }
+            }
+        }
+
+        .eventdetails-keyfeatures {
+            border: 1px solid #E4E4DC;
+            border-radius: 16px;
+            padding: 16px 16px 32px 16px;
+            width: 100%;
+            min-height: 620px;
+            height: auto;
+            row-gap: 24px;
+
+            .eventdetails-featuresfield {
+                width: 100%;
+                min-height: 243px;
+                row-gap: 20px;
+
+                .eventdetails-featurestitle {
+                    height: 30px;
+                    border-bottom: 1px solid #E4E4DC;
+                }
+
+                .eventdetails-roomfield,
+                .eventdetails-suitfield {
+                    min-height: 86px;
+                    height: auto;
+                    display: flex;
+                    column-gap: 25px;
+
+                    .selectfieldarea {
+                        height: 100%;
+                        width: 391px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .contentlabel {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+
+                            .eventdetails-checkinput {
+                                background-color: white !important;
+                                border-color: #1C190E !important;
+                                box-shadow: none !important;
+                            }
+
+                            .eventdetails-checkinput:checked {
+                                background-color: #1C190E !important;
+                            }
+                        }
+
+                        .rangeinputfield {
+                            width: 350px;
+                            height: 100%;
+                        }
+
+                        .rangearea {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 9px;
+
+                            .eventdetails-fieldlabel {
+                                height: 20px;
+                            }
+
+                            .eventdetails-contentarea {
+                                height: 57px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                .toplabel {
+                                    font-size: $message-font;
+                                }
+
+                                .rangedata {
+                                    width: 132px;
+                                    padding-left: 1px;
+                                    border: none;
+                                    border-bottom: 1px solid #8D8D87;
+                                    border-radius: 0 !important;
+                                }
+
+                                .eventdetails-multiunitfields {
+                                    height: 51px;
+                                    border-radius: 12px;
+                                    border-color: #8D8D87;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .eventdetails-specifyfield {
+                height: 1px;
+                width: 100%;
+                background-color: #E4E4DC;
+            }
+
+            .eventdetails-paymentfield {
+                min-height: 235px;
+                height: auto;
+                width: 100%;
+                row-gap: 24px;
+
+                .eventdetails-paymentlabel {
+                    height: 19px;
+                }
+
+                .eventdetails-paymentmultiselect {
+                    min-height: 80px;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                }
+
+                .eventdetails-paymentoptions {
+                    min-height: 86px;
+                    height: auto;
+                    // border: 1px solid red;
+                }
+            }
+        }
+
+        .eventdetails-paymentmethod {
+            border: 1px solid #E4E4DC;
+            border-radius: 16px;
+            padding: 16px 16px 32px 16px;
+            width: 100%;
+            min-height: 408px;
+            height: auto;
+            row-gap: 56px;
+            justify-content: space-between;
+
+            .eventdetails-eventpayment {
+                min-height: 210px;
+                height: auto;
+                justify-content: space-between;
+
+                .eventdetails-paymentlabel {
+                    height: 30px;
+                    border-bottom: 1px solid #E4E4DC;
+                }
+
+                .eventdetails-paymentswitchfield {
+                    min-height: 158px;
+                    height: auto;
+                    >.eventdetails-switcharea:nth-child(1) {
+                        flex-grow: 1;
+                    }
+
+                    >.eventdetails-switcharea:nth-child(2),
+                    >.eventdetails-switcharea:nth-child(3),
+                    >.eventdetails-switcharea:nth-child(4) {
+                        flex-grow: 2;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                    }
+                    >.eventdetails-switcharea:nth-child(3),
+                    >.eventdetails-switcharea:nth-child(4) {
+                        height: 100px;
+                    }
+                    >.eventdetails-switcharea:nth-child(1),
+                    >.eventdetails-switcharea:nth-child(2) {
+                        min-height: 158px;
+                    }
+                }
+            }
+
+            .eventdetails-signaturemethod {
+                min-height: 94px;
+                height: auto;
+                justify-content: space-between;
+
+                .eventdetails-signaturelabel {
+                    height: 30px;
+                    border-bottom: 1px solid #E4E4DC;
+                }
+
+                .eventdetails-signatureswitchfield {
+                    min-height: 42px;
+                    height: auto;
+
+                    // border: 1px solid red;
+                    .eventdetails-switcharea {
+                        div {
+                            flex-grow: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .eventdetails-submitform{
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px;
+           .eventdetails-submitbutton{
+            background: #000;
+            color: #FFFFFF;
+            font-size: 1em;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 500;
+            width: 218px;
+            border: 1px solid #000;
+            // display: inline-block;
+            transition: all 0.4s ease-in-out;
+            // text-decoration: none;
+           } 
+        }
+
+
+        .form-label {
+            font-size: $label-font;
+        }
+
+        .form-control {
+            font-size: $input-font;
+            border-radius: 10px !important;
+        }
+
+        .form-control::placeholder {
+            font-size: $placeholder-font;
+        }
+
+        .inputfield-required {
+            color: #A85B57;
+        }
+
+        .form-check-input {
+            // background-color: #6FA66F;
+            border-color: #6FA66F;
+        }
+
+        .form-check-input:checked {
+            background-color: #6FA66F;
+            border-color: #6FA66F;
+        }
+    }
+
+    .eventdetails-scheduleform{
+        display: none;
+
+        .eventContainer {
+
+            .form-control {
+
+                padding: 15px 15px;
+                border-radius: 10px;
+                border: 1px solid #E4E4DC;
+
+            }
+
+            .form-eventdetails {
+                border-radius: 16px;
+                border: 1px solid #E4E4DC;
+                padding: 20px 15px;
+                margin-left: 0px !important;
+                margin-right: 0px !important;
+
+                .eventschedule-titlecontainer {
+                    min-height: 61px;
+                    height: auto;
+                    justify-content: space-around;
+                    margin-bottom: 17px;
+
+                    .eventschedule-filldetails {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+
+                    .eventschedule--regiterdetails {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+
+                .eventschedule-inputcontainer {
+                    position: relative;
+
+                    .eventschedule-inputicon {
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        transform: translate(-50%, -50%);
+
+                        .iconimg {
+                            width: 18px;
+                            height: 18px;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .eventschedule-helpertext {
+                        font-size: 12px;
+                        font-weight: 400;
+                        color:
+                            #888888;
+                    }
+ 
+                    }
+                    .eventschedule-uniquedatepicker::-webkit-calendar-picker-indicator {
+                        color: rgba(0, 0, 0, 0);
+                        opacity: 1;
+                        background-image: url('../images/dateicon.png');
+                        width: 18px;
+                        height: 18px;
+                        cursor: pointer;
+                        border-radius: 50%;
+                    }
+
+                    .eventschedule-specifictime::-webkit-calendar-picker-indicator{
+                        color: rgba(0, 0, 0, 0);
+                        opacity: 1;
+                        background-image: url('../images/timericon.png');
+                        width: 18px;
+                        height: 18px;
+                        cursor: pointer;
+                        border-radius: 50%;
+                    }
+
+
+
+
+                .reservationselectfield {
+                    min-height: 82px;
+                    column-gap: 25px;
+
+                    .templatetype {
+                        .templateselect {
+                            width: 350px;
+                            height: 51px;
+                            border-radius: 12px;
+                            border-color: #8D8D87;
+                        }
+                    }
+
+                    table {
+
+                        &.sales-agent {
+
+                            th,
+                            tr,
+                            td {
+                                border: none;
+                                padding: 0 0.5rem;
+
+                            }
+
+                            th {
+                                min-width: 100px;
+                                padding: 12px 12px;
+                                font-weight: normal;
+                            }
+
+                            tr {
+                                td {
+                                    span {
+                                        img {
+                                            position: relative;
+                                            padding-left: 15px;
+                                            top: 15px;
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            .form-control:disabled {
+                                background-color: #f7f7f5;
+                            }
+
+                            .form-control {
+                                padding: 13px 15px;
+                            }
+                            
+                            // .form-switch {
+
+                            //     .form-check-input:checked {
+                            //         background-image: url('/images/checked-gray.png');
+                            //         background-size: cover;
+                            //         background-color: #fff;
+                            //         width: 36.75px;
+                            //         height: 21px;
+                            //         border: none;
+                            //         cursor: pointer;
+                            //         position: relative;
+                            //         padding-left: 15px;
+                            //         top: 15px;
+                            //     }
+
+                            //     .form-check-input {
+                            //         background-image: url('/images/unchecked-gray.png');
+                            //         background-size: cover;
+                            //         background-color: #fff;
+                            //         width: 36.75px;
+                            //         height: 21px;
+                            //         border: none;
+                            //         cursor: pointer;
+                            //         position: relative;
+                            //         padding-left: 15px;
+                            //         top: 15px;
+
+                            //         &:focus {
+                            //             border: none;
+                            //             box-shadow: none;
+                            //         }
+                            //     }
+                            // }
+
+                            .form-switch {
+                                .form-check-input {
+                                    border-color: #6FA66F;
+                                }
+                        
+                                .form-check-input:checked {
+                                    background-color: #6FA66F;
+                                    border-color: #6FA66F;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .form-group {
+                    .form-switch {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 10px;
+                        .form-check-input {
+                            border-color: #6FA66F;
+                        }
+                
+                        .form-check-input:checked {
+                            background-color: #6FA66F;
+                            border-color: #6FA66F;
+                        }
+                    }
+
+                }
+
+            }
+            
+
+        }
+
+        .eventschedule-submitform{
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px;
+           .eventschedule-submitbutton{
+            background: #000;
+            color: #FFFFFF;
+            font-size: 1em;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 500;
+            width: 218px;
+            border: 1px solid #000;
+            // display: inline-block;
+            transition: all 0.4s ease-in-out;
+            // text-decoration: none;
+           } 
+        }
+    }
+    
+    .eventdetails-addagentform{
+        display: none;
+        .reservationselectfield {
+            min-height: 82px;
+            column-gap: 25px;
+
+            .templatetype {
+                .templateselect {
+                    width: 350px;
+                    height: 51px;
+                    border-radius: 12px;
+                    border-color: #8D8D87;
+                }
+            }
+
+            table {
+
+                &.sales-agent {
+
+                    th,
+                    tr,
+                    td {
+                        border: none;
+                        padding: 0 0.5rem;
+
+                    }
+
+                    th {
+                        min-width: 100px;
+                        padding: 12px 12px;
+                        font-weight: normal;
+                    }
+
+                    tr {
+                        td {
+                            span {
+                                img {
+                                    position: relative;
+                                    padding-left: 15px;
+                                    top: 15px;
+                                }
+                            }
+                        }
+                    }
+
+
+                    .form-control:disabled {
+                        background-color: #f7f7f5;
+                    }
+
+                    .form-control {
+                        padding: 13px 15px;
+                    }
+                    
+                    // .form-switch {
+
+                    //     .form-check-input:checked {
+                    //         background-image: url('/images/checked-gray.png');
+                    //         background-size: cover;
+                    //         background-color: #fff;
+                    //         width: 36.75px;
+                    //         height: 21px;
+                    //         border: none;
+                    //         cursor: pointer;
+                    //         position: relative;
+                    //         padding-left: 15px;
+                    //         top: 15px;
+                    //     }
+
+                    //     .form-check-input {
+                    //         background-image: url('/images/unchecked-gray.png');
+                    //         background-size: cover;
+                    //         background-color: #fff;
+                    //         width: 36.75px;
+                    //         height: 21px;
+                    //         border: none;
+                    //         cursor: pointer;
+                    //         position: relative;
+                    //         padding-left: 15px;
+                    //         top: 15px;
+
+                    //         &:focus {
+                    //             border: none;
+                    //             box-shadow: none;
+                    //         }
+                    //     }
+                    // }
+
+                    .form-switch {
+                        .form-check-input {
+                            border-color: #6FA66F;
+                        }
+                
+                        .form-check-input:checked {
+                            background-color: #6FA66F;
+                            border-color: #6FA66F;
+                        }
+                    }
+                }
+            }
+        }
+        .addagentform-submitform{
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px;
+           .addagentform-submitbutton{
+            background: #000;
+            color: #FFFFFF;
+            font-size: 1em;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 500;
+            width: 218px;
+            border: 1px solid #000;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.4s ease-in-out;
+           } 
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .eventdetails-reserveagreement {
+            .eventdetails-agreementcontainer {
+                .eventdetails-reservationselectfield {
+                    row-gap: 25px;
+                    flex-direction: column;
+
+                    .eventdetails-templatetype {
+                        .eventdetails-templateselect {
+                            width: 100% !important;
+                        }
+                    }
+
+                    .eventdetails-uploadtype {
+                        .custom-file-input {
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .eventdetails-keyfeatures {
+            .eventdetails-featuresfield {
+
+                .eventdetails-roomfield,
+                .eventdetails-suitfield {
+                    row-gap: 25px;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        min-height: 51px;
+    }
+
+    .dropdown-content {
+        /* display: none; */
+        position: absolute;
+        background-color: #ffffff;
+        max-width: 350px;
+        width: 350px;
+        // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        max-height: 215px;
+        overflow-y: auto;
+        -ms-overflow-style: none;  
+        scrollbar-width: none; 
+    }
+
+    .dropdown-content::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .dropdown-content label {
+        // display: block;
+        padding: 8px 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #E4E4DC;
+        width: 95%;
+        margin: auto;
+        
+    }
+    .dropdown-content label .option{
+        background-color: white !important;
+        border-color: #1C190E !important;
+        box-shadow: none !important;
+    }
+
+    .dropdown-content label .option:checked{
+        background-color: #1C190E !important;
+    }
+
+    .dropdown-content input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        /* margin-bottom: 12px; */
+        font-size: 16px;
+        border: 1px solid #8D8D87;
+        position: sticky;
+        top: 0;
+        height: 51px;
+        border-radius: 12px;
+
+    }
+
+    .dropdown-content label:hover {
+        background-color: #ddd;
+    }
+
+    .selected-options {
+        margin-top: 20px;
+    }
+
+    .selected-option {
+        display: flex;
+        width: fit-content;
+        background-color: #8D8D87;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    .optionsfield {
+        display: none;
+    }
+
+    .show {
+        display: inline-block;
+        width: 100%;
+        min-height: 158px;
+        height: 164px;
+        border: 1px solid #E4E4DC;
+        border-radius: 8px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;  
+        scrollbar-width: none; 
+    }
+    .show::-webkit-scrollbar{
+        display: none;
+    }
+    // .remove-icon{
+    //     // display: hidden;
+    //     visibility: hidden;
+    // }
+}
+
+.custom-file-input {
+    width: 350px !important;
+    height: 52px !important;
+}
+
+[type="file"]::file-selector-button {
+    width: 118px !important;
+    margin-inline-end: 0;
+    height: 50px;
+    background-color: #E4E4DC !important;
+    color: smoke;
+    border-radius: 8px !important;
+    border: 5px solid white !important;
+
+}
+
+.eventdetails-bgimage {
+    height: 120px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 38px;
+
+    .eventdetails-pagetitleimage {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .eventdetails-backpagecontainer {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        width: 414px;
+        height: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 24px;
+
+        .eventdetails-pagetitle {
+            width: 333px;
+            font-size: $title-font;
+            color: #2B2A28 !important;
+        }
+
+        .eventdetails-layerimage {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}
+
+.modal_dialog {
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.modal_body {
+    display: inline-flex;
+    gap: 0px;
+    margin: 0 auto;
+
+    label {
+        color: #3A3A3C;
+        margin-bottom: 5px;
+
+    }
+
+    .form-group {
+
+        input[type=text],
+        input[type=email] {
+
+            width: 261px;
+            border-radius: 8px;
+            border: 1px solid #8D8D87;
+            height: 41px;
+            background-color: #FAFAF8;
+            padding: 15px;
+
+            &:focus-visible {
+                outline: 0;
+            }
+        }
+    }
+}
+
+// .visible {
+//     display: block !important;
+// }
+
+// .hidden {
+//     display: none !important;
+// }
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    .header-modal {
+        display: block;
+        width: 100%;
+        background: #e4e4dc;
+        text-align: center;
+        padding: 0px;
+        border-radius: 16px 16px 0px 0;
+
+        h2 {
+            font-size: 16px;
+            margin: 0;
+            padding: 20px;
+
+            &::before {
+                content: "";
+                background-image: url('../images/InformationCircle.png');
+                background-repeat: no-repeat;
+                background-size: 70%;
+                position: relative;
+                top: 3px;
+                left: 0px;
+                padding: 0px 10px;
+            }
+        }
+    }
+
+    .modal_dialog {
+        max-width: 100%;
+        width: 600px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        background: #FFFFFF;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 24px;
+        color: #000;
+    
+        .header-modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5px;
+            color: #000;
+            .model-timericon{
+                width: 18px;
+                height: 18px;
+                // margin-right: 5px;
+            }
+        }
+        .modal-buttoncontainer{
+            margin-bottom: 20px;
+            .modal-cancelbutton{
+                // background: #000;
+                color: #000;
+                font-size: 1em;
+                border-radius: 8px;
+                padding: 10px 15px;
+                font-weight: 500;
+                width: 170px;
+                border: 1px solid #000;
+                // display: inline-block;
+                transition: all 0.4s ease-in-out;
+            }
+            .modal-eventbutton{
+                background: #000;
+                color: #FFFFFF;
+                font-size: 1em;
+                border-radius: 8px;
+                padding: 10px 15px;
+                font-weight: 500;
+                width: 170px;
+                border: 1px solid #000;
+                // display: inline-block;
+                transition: all 0.4s ease-in-out;
+            }
+        }
+    }
+
+    .modal_body {
+        display: inline-flex;
+        gap: 0px;
+        margin: 0 auto;
+
+        label {
+            color: #3A3A3C;
+            margin-bottom: 5px;
+
+        }
+
+        .form-group {
+
+            input[type=text],
+            input[type=email] {
+
+                width: 261px;
+                border-radius: 8px;
+                border: 1px solid #8D8D87;
+                height: 41px;
+                background-color: #FAFAF8;
+                padding: 15px;
+
+                &:focus-visible {
+                    outline: 0;
+                }
+            }
+        }
+    }
+
+    .cta_black {
+        background: #2B2A28;
+        color: #FFFFFF;
+        font-size: 16px;
+        border-radius: 8px;
+        padding: 8.5px 1rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.25s;
+        min-width: 115px;
+    }
+
+    .cta_white {
+        border: 1px solid #1C190E;
+        border-radius: 8px;
+        padding: 8.5px 1rem;
+        text-align: center;
+        background: #FFFFFF;
+        transition: 0.25s;
+        min-width: 115px;
+    }
+
+}

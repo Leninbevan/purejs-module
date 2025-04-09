@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+    <style>
+           
+   
+    </style>
+  </head>
+  <body class="event-detail-page" data-bs-spy="scroll" data-bs-target="#navmenu">
+    
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <nav class="navbar navbar-white bg-white  fixed-top">
+        <div class="container-fluid">
+        
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">WASL Admin</a>
+          <div class="offcanvas offcanvas-end bg-white " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <div class="img-wasl"><img src="images/wasl-logo.png" width="75%"></div> 
+              <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+              <div class="user-profile mb-3">
+                <div class="profile-name"><a href="user-profile.html">Tarun Rathore</a></div>
+                <div class="profile-role">Admin</div>
+              </div>
+
+              <div class="navbar-menu-subhead mb-2">Main</div>
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item mb-2">
+                  <a class="nav-link active dashboard" aria-current="page" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link cust-manage" href="#">Customer Management</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link unitManage" href="#">Unit Management</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link regisList" href="#">Registration List</a>
+                </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link scanQr" href="#">Scan QR</a>
+                </li>
+              </ul>
+                <hr>
+                <div class="navbar-menu-subhead mb-2">Event</div>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"> 
+                  
+                  <li class="nav-item">
+                    <a class="nav-link Eventicon" href="#">Create Event</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link manageEvent" href="#">Manage Events</a>
+                  </li>
+                </ul>
+                <hr>
+                <div class="navbar-menu-subhead mb-2">User Management</div>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"> 
+                  <li class="nav-item">
+                   <a class="nav-link  userManage" aria-current="page" href="#">User Management</a>
+                 </li>
+                </ul>
+                <strong><hr></strong>
+                <div class="user-logout">
+                  <span><a href="#">Logout User</a></span>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </header> <!-- End Header -->
+        
+    <section class="section event-header"> 
+      
+      <div class="container">
+        
+            <div class="event-page header mt-4 pb-4">
+              
+              <div class="heading d-flex justify-content-start float-start">
+                <a href="javascript:history.back()"><img src="images/arrow-right.png" alt="right arrow" class="me-4"> </a>
+                <h4>Event details</h4>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <div class="form-check form-switch me-3 mt-2">
+                  <input class="form-check-input" type="checkbox" role="switch" id="DisableRegistration">
+                  Disable Registrations
+                </div>
+                <div class="me-3"><a href="#" class="btn btn-white" id="editEvent">Event Details</a></div> 
+                <div class=""><a href="#" class="btn btn-dark" id="StartEvent">Start Event</a></div>  
+              </div>
+            </div>
+      </div>
+    </section>
+
+    <section class="event-details">
+      <div class="container">
+
+          <div class="mt-4">
+
+              <div class="event-title d-flex justify-content-start float-start">
+                  <h2>Wasl - Gardenia Townhouse</h2>
+                  <span id="Eventstatus">Not Started</span>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                  <div class="registration-info">
+
+                    <a href="#" class="register-link">Event Registration Link</a>
+                    <div class="text-gray  mt-3">Click on the link to copy address.</div> 
+                    <div class="text-green mt-2" id="PreRegistration" style="display: none;">450/500 Pre-Registrations Completed</div> 
+                  </div> 
+              </div>
+          </div>
+
+            <div class="pt-3"> 
+                <div id="tab1" class="event-heading tab active" onclick="showTab('tab1')"><strong> 1. EVENT DETAILS </strong>  <span class=""></span> </div>
+                <div id="tab2" class="event-heading tab" onclick="showTab('tab2')"><strong> 2. TIME SLOTS </strong><span class=""></span></div>
+                <hr>
+            </div>
+
+           
+            <div class="eventdetailtabs container tab-content active" id="content1" > 
+
+                    <div class="eventContainer">
+                          <div class="row form-eventdetails mt-4 mb-3" id="">
+                                <div class="form-group col-sm-8 flex-column d-flex"> 
+                                  <label for="inputByerName" class="form-label">TITLE OF EVENT <span class="required">*</span></label>
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" aria-label=""  value="Dubai Property Exhibition" id="inputEventName">
+                                  </div>
+                                </div>
+                                <div class="form-group col-sm-4 flex-column d-flex"> 
+                                  <label for="" class="form-label">ADD PREFIX TO TOKEN NUMBER</label>
+                                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="GT">
+                                  
+                                  <span class="small-text-brown text-gray">Note: The Token no. will start from 0001 in an sequential manner.</span>
+                                </div>
+
+                                <div class="eventlocation mt-4">
+                                <label for="eventlocation" class="form-label">LOCATION <span class="required">*</span></label>
+                                <div class="input-group eventdetails-locationsubmit">
+                                    <input type="text" id="eventlocation" class="form-control"
+                                        placeholder="" aria-label="Recipient's username"
+                                        aria-describedby="button-addon2" value="Tower 2, Marina Gate Tower, Dubai Marina, Dubai, UAE">
+                                    <button type="button" class="locationbutton"><img src="images/map-icon.png" alt="map" class="locationicon" />View on Google Maps </button>
+                                </div>
+                                </div>
+
+                                <div class="eventdescription mt-4">
+                                  <div class="mb-2">
+                                      <label for="eventdescription" class="form-label">EVENT DESCRIPTION <span class="required">*</span></label>
+                                      <textarea class="form-control eventdescriptiontext" id="eventdescription"
+                                          placeholder="Exhibition with different types of properties on sale."
+                                          rows="3"></textarea>
+                                  </div>
+                              </div>
+
+                                  <div class="pointstonote mt-4">
+                                    <label for="keypoints" class="form-label">POINTS TO NOTE <span class="required">*</span></label>
+                                    <div class="mb-3 eventdetails-multiplefields d-flex flex-column" id="pointsContainer">
+                                        <input type="text" class="form-control eventdetails-addkeypoint" id="keypoints"
+                                            value="Brokers are allowed to make  purchase on behalf of someone else.">
+                                    </div>
+                                  </div>
+                          </div>  
+                          
+                          <div class="row form-eventdetails mb-3">
+                                <label for="" class="form-label">RESERVATION AGREEMENT <span class="required">*</span></label>
+                                <hr>
+                                  <div class="reservationselectfield form-group col-sm-4 flex-column d-flex"> 
+
+                                    <div class="input-group mb-3">
+                                      <div class="templatetype">
+                                          <label for="templatetype" class="form-label">SELECT TEMPLATE TYPE <span class="required">*</span></label>
+                                            <select class="form-select templateselect" id="templatetype"
+                                              aria-label="Default select example">
+                                              <option selected>Unit</option>
+                                              <option value="1">One</option>
+                                              <option value="2">Two</option>
+                                              <option value="3">Three</option>
+                                            </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group col-sm-4 flex-column d-flex"> 
+                                    <label for="" class="form-label">UPLOAD TEMPLATE<span class="required">*</span></label>
+                                    <input type="file" class="form-control-file" id="">
+                                  </div>
+                          </div>
+
+                          <div class="row form-eventdetails mb-3">
+                                <label for="" class="form-label">PAYMENT METHODS FOR THE EVENT <span class="required">*</span></label>
+                                  <hr>
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="paymentAll" checked="">
+                                        <span> Select all</span>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                        <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="POS" checked="">
+                                          <span>POS</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="payCreditDebit" checked="">
+                                          <span> Credit / Debit Card</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="payCash" checked="">
+                                          <span> Cash</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                        <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="QRCodeScanner" checked="">
+                                          <span> QR Code scanner</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" role="switch" id="throughWaslApp" checked="">
+                                          <span> E-Services through Wasl App</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="QuickPay" checked="">
+                                        <span> Quick Pay</span>
+                                      </div>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="Cheque" checked="">
+                                        <span> Cheque</span>
+                                      </div>
+                                    </div>
+
+                                    <label for="" class="form-label mt-4">SIGNATURE METHODS FOR THE RESERVATION AGREEMENT<span class="required">*</span></label>
+                                    <hr>
+
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="QuickPay" checked="">
+                                        <span> Quick Pay</span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="QuickPay" checked="">
+                                        <span> Sign via Tablet</span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="QuickPay" checked="">
+                                        <span> Sign on DocuSign</span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-sm-3 flex-column d-flex"> 
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="QuickPay" checked="">
+                                        <span> Sign on UAE Pass</span>
+                                      </div>
+                                    </div>
+
+                          </div>
+                    </div> <!-- eventContainer end -->
+                    <!-- EVENT SCHEDULE  -->
+                    <div class="event-heading pt-5"><strong>2. EVENT SCHEDULE   </strong> <span class=""></span> <hr> </div>
+                    <div class="eventContainer">
+                            <div class="row form-eventdetails mt-4" id="">
+                              
+                                  <div class="form-group col-sm-4 flex-column d-flex mb-4"> 
+                                    <label for="PersonAllowed" class="form-label">TOTAL REGISTRATION ALLOWED FOR THE EVENT <span class="required">*</span></label>
+                                    <input type="text" class="form-control PersonAllowed" aria-label=""  value="500" id="">
+                                    <span class="icon"></span>
+                                  </div>
+                                  <div class="form-group col-sm-4 flex-column d-flex  mb-4"> 
+                                      <label for="RegistrationStart" class="form-label">REGISTRATION START DATE & TIME <span class="required">*</span></label>
+                                      <input type="text" class="form-control" id="RegistrationStart" aria-describedby="" value="16/09/2024  10:00 GST">
+                                  </div>
+                                  <div class="form-group col-sm-4 flex-column d-flex  mb-4"> 
+                                    <label for="RegistrationEnd" class="form-label">REGISTRATION END DATE & TIME <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="RegistrationEnd" aria-describedby="" value="26/09/2024   23:59 GST">
+                                  </div>
+                                  <div class="form-group col-sm-4 flex-column d-flex"> 
+                                    <label for="eventDate" class="form-label">DATE OF THE EVENT <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="eventDate" aria-describedby="" value="16/09/2024">
+                                  </div>
+                                  <div class="form-group col-sm-4 flex-column d-flex"> 
+                                    <label for="CheckinTime" class="form-label">CHECK-IN TO EVENT ALLOWED PRIOR TO <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="CheckinTime" aria-describedby="" value="30 min">
+                                  </div>
+                                  <div class="mt-3"><hr></div>
+                                  <div class="form-group col-sm-4 flex-column d-flex"> 
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="BypassingTimeslot" checked="">
+                                      <span> By-passing of Time Slot for Check-In</span>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group col-sm-4 flex-column d-flex"> 
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin">
+                                      <span> Allow Walk-in</span>
+                                    </div>
+                                  </div>
+
+                            </div> 
+                    </div> <!-- eventContainer end -->
+                  <!--   EVENT SCHEDULE end -->
+                  <!-- Add Team  -->
+                    <div class="event-heading pt-5"><strong> 3. ADD TEAM</strong> <span class=""></span> <hr> </div>
+                      <div class="eventContainer">
+                            <div class="form-eventdetails mt-4 mb-3" id="">
+                                <div class="reservationselectfield form-group col-sm-4 flex-column d-flex"> 
+
+                                    <div class="templatetype">
+                                        <label for="templatetype" class="form-label"><h5><strong>Assign Receptionist:</strong></h5></label>
+                                        <div class="mb-2"> </div> 
+                                        <table class="table table-responsive sales-agent" id="EventSalesAgent">
+                                            <thead>
+                                              <tr>
+                                                <th>Sr#</th>
+                                                <th>Select Sales Agent</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                  <tr>
+                                                      <td> 
+                                                      <input type="text" class="form-control" id="" aria-describedby="" value="1" disabled>
+                                                      </td>
+                                                      <td>
+                                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                                        aria-label="Default select example">
+                                                        <option selected>Ayesha Alramsi</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                      </select>
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td> 
+                                                    <input type="text" class="form-control text-left" id="" aria-describedby="" value="2" disabled>
+                                                    </td>
+                                                    <td>
+                                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                                      aria-label="Default select example">
+                                                      <option selected>Ayesha Alramsi</option>
+                                                      <option value="1">One</option>
+                                                      <option value="2">Two</option>
+                                                      <option value="3">Three</option>
+                                                    </select>
+                                                    
+                                                    </td>
+                                                    <td> <span><img src="images/Bin.png"></span></td>
+
+                                                  </tr>
+                                                  <tr>
+                                                  <td> 
+                                                  <input type="text" class="form-control" id="" aria-describedby="" value="3" disabled>
+                                                  </td>
+                                                  <td>
+                                                  <select class="form-select templateselect mb-3" id="templatetype">
+                                                    aria-label="Default select example">
+                                                    <option selected>Ayesha Alramsi</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                  </select>
+                                                  </td>
+                                                  <td> <span><img src="images/Bin.png"></span></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td> 
+                                                  <input type="text" class="form-control" id="" aria-describedby="" value="4" disabled>
+                                                  </td>
+                                                  <td>
+                                                  <select class="form-select templateselect mb-3" id="templatetype">
+                                                  aria-label="Default select example">
+                                                  <option selected>Ayesha Alramsi</option>
+                                                  <option value="1">One</option>
+                                                  <option value="2">Two</option>
+                                                  <option value="3">Three</option>
+                                                  </select>
+                                                  </td>
+                                                  <td> <span><img src="images/Bin.png"></span></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td> 
+                                                  <input type="text" class="form-control" id="" aria-describedby="" value="5" disabled>
+                                                  </td>
+                                                  <td>
+                                                  <select class="form-select templateselect mb-3" id="templatetype">
+                                                  aria-label="Default select example">
+                                                  <option selected>Ayesha Alramsi</option>
+                                                  <option value="1">One</option>
+                                                  <option value="2">Two</option>
+                                                  <option value="3">Three</option>
+                                                  </select>
+                                                  </td>
+                                                  <td> <span><img src="images/Bin.png"></span></td>
+                                                  </tr>
+                                            </tbody>
+                                            </table> 
+                                    </div>
+                                </div>
+                                <div><hr></div>
+                                <div class="mb-3" id="">
+                                    <div class="reservationselectfield"> 
+                                        <div class="templatetype">
+                                          <label class="form-label"><h5><strong>Add Kiosks/Desks and Sales Agents:</strong></h5></label>
+                                          <div class="mb-2"> </div> 
+                                              <table class="table table-responsive sales-agent" id="EventSalesAgent">
+                                                <thead>
+                                                    <tr>
+                                                      <th>Kiosk/Desk </th>
+                                                      <th>Select Sales Agent</th>
+                                                      <th>Max. Units to Hold</th>
+                                                      <th>Exceptional</th>
+                                                      <th> QR Scanning </th>
+                                                    </tr>
+                                                </thead>
+                                              <tbody>
+                                                    <tr>
+                                                        <td> 
+                                                        <input type="text" class="form-control" id="" aria-describedby="" value="Desk A" disabled>
+                                                        </td>
+                                                        <td>
+                                                        <select class="form-select templateselect salesAgent mb-3" id="templatetype">
+                                                          <option selected>Ayesha Alramsi</option>
+                                                          <option value="1">One</option>
+                                                          <option value="2">Two</option>
+                                                          <option value="3">Three</option>
+                                                        </select>
+                                                        </td>
+                                                        <td>
+                                                          <select class="form-select templateselect mb-3" id="templatetype">
+                                                            <option selected>4</option>
+                                                            <option value="1">3</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">1</option>
+                                                          </select>
+                                                        </td>
+                                                        <td>
+                                                          <div class="form-check form-switch">
+                                                          <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin">
+                                                          </div>
+                                                        </td>
+                                                        <td> <span><img src="images/Bin.png"></span></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                      <td><input type="text" class="form-control" id="" aria-describedby="" value="Desk B" disabled></td>
+                                                      <td>
+                                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                                      
+                                                        <option selected>Ayesha Alramsi</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                      </select>
+                                                      </td>
+                                                      <td>
+                                                        <select class="form-select templateselect mb-3" id="templatetype">
+                                                          <option selected>4</option>
+                                                          <option value="1">3</option>
+                                                          <option value="2">2</option>
+                                                          <option value="3">1</option>
+                                                        </select>
+                                                      </td>
+                                                    
+                                                      <td>
+                                                        <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin">
+                                                        </div>
+                                                      </td>
+                                                      <td> <span><img src="images/Bin.png"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td> 
+                                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk C" disabled>
+                                                    </td>
+                                                    <td>
+                                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                                      aria-label="Default select example">
+                                                      <option selected>Ayesha Alramsi</option>
+                                                      <option value="1">One</option>
+                                                      <option value="2">Two</option>
+                                                      <option value="3">Three</option>
+                                                    </select>
+                                                    </td>
+                                                    <td>
+                                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                                        <option selected>4</option>
+                                                        <option value="1">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">1</option>
+                                                      </select>
+                                                    </td>
+                                                  
+                                                    <td>
+                                                      <div class="form-check form-switch">
+                                                      <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin">
+                                                      </div>
+                                                    </td>
+                                                    <td> <span><img src="images/Bin.png"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td> 
+                                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk D" disabled>
+                                                    </td>
+                                                    <td>
+                                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                                    aria-label="Default select example">
+                                                    <option selected>Ayesha Alramsi</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                    </select>
+                                                    </td>
+                                                    <td>
+                                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                                        <option selected>4</option>
+                                                        <option value="1">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">1</option>
+                                                      </select>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                      <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                                      </div>
+                                                    </td>
+                                                    <td> <span><img src="images/Bin.png"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td> 
+                                                    <input type="text" class="form-control" id="" aria-describedby="" value="Desk E" disabled>
+                                                    </td>
+                                                    <td>
+                                                    <select class="form-select templateselect mb-3" id="templatetype">
+                                                  
+                                                    <option selected>Ayesha Alramsi</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                    </select>
+                                                    </td>
+                                                    <td>
+                                                      <select class="form-select templateselect mb-3" id="templatetype">
+                                                        <option selected>4</option>
+                                                        <option value="1">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">1</option>
+                                                      </select>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                      <div class="form-check form-switch">
+                                                      <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin" checked="">
+                                                      </div>
+                                                    </td>
+                                                    <td> <span><img src="images/Bin.png"></span></td>
+                                                    
+                                                    </tr>
+                                              </tbody>
+                                              </table> 
+
+                                              <div class="eventdetails-buttoncontainer">
+                                                <button type="button" class="btn btn-outline-secondary" onclick="addNewAgent()">+ Add Sales Agent
+                                                    </button>
+                                                <button type="button" class="eventdetails-deletepoint" onclick="deleteLastPoint()" id="deleteButton" style="display: none;">Delete Last Point</button>
+                                              </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                      </div>
+                      <!-- Add Team end --> 
+                      <!-- Cancel Event -->
+                      <div class="event-heading"><strong> CANCEL EVENT</strong> <span class=""></span> <hr> </div>
+                      <div class="eventContainer"> 
+                        <div class="form-eventdetails mt-4 mb-3" id="">
+                          <p><strong>Note:</strong> Cancelling the event is an irreversible action. </p>
+                          <button type="button" class="cancelbutton" onclick="" id="EventCancelBtn">Cancel Event</button>
+                        </div>
+                      </div>
+                      <!-- Cancel Event end -->
+
+            </div> <!-- eventdetails-container Tab Event Details end here -->
+
+            <div class="eventdetailtabs timeslots tab-content"  id="content2" >
+              <div class="eventContainer">
+                  <div class="row mt-4 mb-5 pt-3">
+                    <div class="form-group col-sm-4 flex-column d-flex"> 
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="BypassingTimeslot" checked="">
+                        <span> By-passing of Time Slot for Check-In</span>
+                      </div>
+                    </div>
+                    <div class="form-group col-sm-4 flex-column d-flex"> 
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="AllowWalkin">
+                        <span> Allow Walk-in</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="CreateTimeSlots">
+                    <div><h5><strong>Create Time Slots:</strong></h5></div>
+                    <div class="mb-2"> </div> 
+                    <div class="row mt-4" id="">
+                      <div class="form-group col-sm-9 flex-row d-flex">
+                          <div class="form-group col-sm-3 flex-column d-flex mb-4 me-4"> 
+                            <label for="FromTime" class="form-label">From Time <span class="required">*</span></label>
+                            <div class="inputcontainer">
+                              <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                              </div>
+                          </div>
+                          <div class="form-group col-sm-3 flex-column d-flex mb-4  me-4"> 
+                            <label for="" class="form-label">TO TIME <span class="required">*</span></label>
+                            <div class="inputcontainer">
+                            <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                          </div>
+                          </div>
+                          <div class="form-group col-sm-3 flex-column d-flex  mb-4  me-4"> 
+                            <label for="" class="form-label">No of Attendees Per Slot <span class="required">*</span></label>
+                            <div class="inputcontainer">
+                            <input type="text" class="form-control person" value="100" id="" aria-describedby="">
+                          
+                          </div>
+                          </div>
+                      </div>
+
+                        <div class="textcolor-sand-brown"> 
+                          <p>Token no. PR001 to PR100 assigned to the above slot</p> 
+                        </div>
+                          <div class="form-group col-sm-9 flex-row d-flex">
+                            <div class="form-group col-sm-3 flex-column d-flex mb-4 me-4"> 
+                              <div class="inputcontainer">
+                                <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3 flex-column d-flex mb-4  me-4"> 
+                            <div class="inputcontainer">
+                              <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                              </div>
+                            </div>
+                            <div class="form-group col-sm-3 flex-column d-flex  mb-4  me-4"> 
+                              <div class="inputcontainer">
+                              <input type="text" class="form-control person" value="100" id="" aria-describedby="">
+                              </div>
+                            </div>
+                            <div class="form-group col-sm-2 flex-column d-flex  mb-4  me-4"> 
+                              <span><img src="images/Bin-gray.png" width="18px"> </span>
+                            </div>
+                          </div>
+
+                            <div class="textcolor-sand-brown">
+                              <p>Token no. PR101 to PR200 assigned to the above slot</p> 
+                            </div>
+                              <div class="form-group col-sm-9 flex-row d-flex">
+                                    <div class="form-group col-sm-3 flex-column d-flex mb-4 me-4"> 
+                                      <div class="inputcontainer">
+                                        <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-3 flex-column d-flex mb-4  me-4"> 
+                                    <div class="eventschedule-inputcontainer">
+                                      <input type="text" class="form-control  eventschedule-specifictime timer-icon" aria-label="" value="9:00pm" id="">
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-sm-3 flex-column d-flex  mb-4  me-4"> 
+                                      <div class="eventschedule-inputcontainer">
+                                      <input type="text" class="form-control person" value="200" id="" aria-describedby="">
+                                      
+                                    </div>
+                                    </div>
+                                    <div class="form-group col-sm-2 flex-column d-flex  mb-4  me-4"> 
+                                      <span><img src="images/Bin-gray.png" width="18px"> </span>
+                                    </div>
+                              </div>
+                              <div class="textcolor-sand-brown">
+                                <p>Token no. PR201 to PR501 assigned to the above slot</p>
+                              </div>
+                              <div class="textcolor-chaf-grey mt-2 mb-2"> 
+                                50 Attendees remaining. Next slot will be assigned from <strong>Token no. PR00502</strong>
+                              </div> 
+                              <div class="buttoncontainer">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="addTimeSlot()">+ Add time slot </button>
+                              </div>
+                              <div class="buttoncontainer mt-2 mb-5">
+                                    <button type="submit" class="btn btn-dark mt-3" id="AssignSlot">Assign Slots</button>
+                              </div>
+                              
+                    </div>
+                  </div> <!-- CreateTimeSlots ends -->
+              </div> <!-- eventContainer ends -->
+            </div><!--  Tab Time Slots end here -->
+
+      
+      </div><!--container end-->
+    </section><!--event-details end-->
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="js/DataTables/datatables.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+  const changeTextButton = document.getElementById("StartEvent");
+  const Eventstatus = document.getElementById("Eventstatus");
+  const PreRegister =  document.getElementById("PreRegistration");
+  const changeTextEditevent =  document.getElementById("editEvent");
+  
+  // Add click event listener to the button
+  changeTextButton.addEventListener("click", function() {
+      
+      Eventstatus.textContent = "Registration In Progress";
+      changeTextEditevent.textContent ="Edit Event";
+      Eventstatus.classList.add("event-in-progress");
+      PreRegister.style.display = "block";
+  });
+
+  // Tabs
+  function showTab(tabId) {
+      var tabs = document.querySelectorAll('.tab');
+      var tabContents = document.querySelectorAll('.tab-content');
+      
+      tabContents.forEach(function(tabContent) {
+          tabContent.classList.remove('active');
+      });
+      
+      tabs.forEach(function(tab) {
+          tab.classList.remove('active');
+      });
+      
+      var clickedTab = document.getElementById(tabId);
+      clickedTab.classList.add('active');
+      
+      // Show the corresponding content
+      var contentId = tabId.replace('tab', 'content');
+      var contentToShow = document.getElementById(contentId);
+      contentToShow.classList.add('active');
+  }
+</script>
+
+<script>
+  const changebuttonText = document.getElementById("AssignSlot");
+  const startButton = document.getElementById("StartEvent");
+  const statusButton = document.getElementById("Eventstatus");
+  
+  changebuttonText.addEventListener("click", function() {
+      startButton.textContent = "End Event";
+      startButton.classList.add('end-event','btn-red');
+      
+      statusButton.textContent = "Event Live";
+      statusButton.classList.add('event-live', 'btn-green');
+
+  });
+  </script>
+
+
+  </body>
+</html>

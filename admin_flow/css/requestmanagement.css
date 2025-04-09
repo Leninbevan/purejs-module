@@ -1,0 +1,968 @@
+.requestmanage-headercontent {
+  position: relative;
+}
+.requestmanage-headercontent .requestmanage-headersubcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translate(-15%, -50%);
+}
+.requestmanage-headercontent .requestmanage-headersubcontent .requestmanage-selectfield {
+  margin-right: 24px;
+}
+.requestmanage-headercontent .requestmanage-headersubcontent .requestmanage-selectfield .requestmanage-headerselect {
+  width: 260px;
+  max-width: 260px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px 0px rgba(141, 141, 135, 0.3);
+  font-size: 14px;
+  font-weight: 700;
+  border-color: #fff;
+}
+.requestmanage-headercontent .requestmanage-headersubcontent .requestmanage-notifyfield {
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px 0px rgba(141, 141, 135, 0.3);
+  width: 43px;
+  height: 43px;
+  position: relative;
+}
+.requestmanage-headercontent .requestmanage-headersubcontent .requestmanage-notifyfield .notify-alerticon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.requestmanage-headercontent .requestmanage-headersubcontent .requestmanage-notifyfield .requestmanage-notifymessage {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e62e7b;
+  position: absolute;
+  right: 0%;
+}
+
+.requestmanage-container .card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.requestmanage-container .card-title .requestmanage-backicon {
+  width: 25px;
+  height: 25px;
+  -o-object-fit: none;
+     object-fit: none;
+  margin-right: 5px;
+}
+.requestmanage-container .card-headtitle .requestmanage-cardicon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: -2px;
+  left: 2px;
+  padding: 0%;
+  margin-right: 5px;
+}
+.requestmanage-container .seachfield-container {
+  width: 322px !important;
+  max-width: 322px !important;
+  height: 44px !important;
+  border-radius: 4px !important;
+  position: relative;
+}
+.requestmanage-container .seachfield-container .requestmanage-serachicon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.requestmanage-container .seachfield-container .user-search {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 4px !important;
+  padding-left: 40px;
+}
+.requestmanage-container .requestmanage-titlerow {
+  display: flex;
+  justify-content: space-between;
+}
+.requestmanage-container .requestmanage-tablefield .form-check-input:checked {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.requestmanage-container .requestmanage-tablefield .form-check-input:focus {
+  box-shadow: none;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-staticheader th {
+  padding-right: 70px !important;
+  background-color: #f8fafc;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody .requestmanage-approvedtitle {
+  color: #20bb1d;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody .requestmanage-pendingtitle {
+  color: #d9ab00;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody .requestmanage-serialorder {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fdb623;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody .requestmanage-eyeicon {
+  width: 16px;
+  height: 16px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-left: 5px;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody .requestmanage-paint {
+  width: 18px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.requestmanage-container .requestmanage-tablefield .requestmanage-tablebody tr td:nth-child(-n+6) {
+  background-color: #f8fafc;
+}
+.requestmanage-container .requestmanage-filterarea {
+  margin: 0px 15px 0px 10px;
+}
+.requestmanage-container .requestmanage-bulkapproval {
+  margin-right: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.requestmanage-container .requestmanage-applyfilter,
+.requestmanage-container .requestmanage-bulkapproval {
+  height: 44px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #1c190e;
+  background-color: #fff;
+}
+.requestmanage-container .requestmanage-tabcontainer {
+  width: 100%;
+  height: 37px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.requestmanage-container .requestmanage-tabcontainer .requestmanage-switchtab {
+  min-width: 185px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.requestmanage-container .requestmanage-tabcontainer .requestmanage-activebar span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  bottom: 0%;
+  background-color: #1c190e;
+  border-radius: 9px 9px 0px 0px;
+}
+
+.requestmanage-filtercontainer {
+  width: 590px !important;
+  padding: 32px 24px;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.requestmanage-filtercontainer .offcanvas-header {
+  padding: 0% !important;
+  margin-bottom: 24px !important;
+}
+.requestmanage-filtercontainer .offcanvas-body {
+  padding: 0% !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-multiselect {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-multiselect .requestmanage-title {
+  font-size: 16px;
+  font-weight: 400;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider {
+  min-height: 141px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-slidertitle {
+  min-height: 19px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderarea {
+  min-height: 28px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax {
+  min-height: 57px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax .eventmanage-contentarea {
+  width: 340px;
+  max-width: 340px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-left: 2px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax .eventmanage-contentarea .toplabel {
+  font-size: 12px;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax .eventmanage-contentarea .rangedata {
+  width: 132px;
+  padding-left: 1px;
+  border: none;
+  border-bottom: 1px solid #8d8d87;
+  border-radius: 0 !important;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax .eventmanage-contentarea .rangedata:focus {
+  box-shadow: none;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-slider .eventmanage-sliderminmax .eventmanage-contentarea .eventdetails-multiunitfields {
+  height: 51px;
+  border-radius: 12px;
+  border-color: #8d8d87;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-buttoncontainer {
+  width: 98%;
+  display: flex !important;
+  -moz-column-gap: 13px !important;
+       column-gap: 13px !important;
+}
+.requestmanage-filtercontainer .offcanvas-body .requestmanage-buttoncontainer .filterbutton {
+  width: 50%;
+  height: 56px;
+}
+.requestmanage-filtercontainer .requestmanage-headercontent {
+  width: 100%;
+  height: 75px;
+  justify-content: space-between;
+}
+.requestmanage-filtercontainer .requestmanage-headercontent .requestmanage-headertitle {
+  font-size: 22px;
+  font-weight: 400;
+  justify-content: space-between;
+  align-items: center;
+}
+.requestmanage-filtercontainer .requestmanage-headercontent .requestmanage-headertitle .btn-close {
+  margin: 0% !important;
+}
+.requestmanage-filtercontainer .requestmanage-headercontent .requestmanage-subheader {
+  font-size: 16px;
+  font-weight: 400;
+}
+.requestmanage-filtercontainer .dropdown {
+  position: relative;
+  display: inline-block;
+  min-height: 51px;
+}
+.requestmanage-filtercontainer .dropdown-content {
+  position: absolute;
+  background-color: #ffffff;
+  width: 98%;
+  max-height: 215px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.requestmanage-filtercontainer .dropdown-content::-webkit-scrollbar {
+  display: none;
+}
+.requestmanage-filtercontainer .dropdown-content label {
+  padding: 8px 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e4dc;
+  width: 95%;
+  margin: auto;
+}
+.requestmanage-filtercontainer .dropdown-content label .option {
+  background-color: white !important;
+  border-color: #1c190e !important;
+  box-shadow: none !important;
+}
+.requestmanage-filtercontainer .dropdown-content label .option:checked {
+  background-color: #1c190e !important;
+}
+.requestmanage-filtercontainer .dropdown-content input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 1px solid #8d8d87;
+  position: sticky;
+  top: 0;
+  height: 51px;
+  border-radius: 12px;
+}
+.requestmanage-filtercontainer .dropdown-content label:hover {
+  background-color: #ddd;
+}
+.requestmanage-filtercontainer .selected-option {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #8d8d87;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+.requestmanage-filtercontainer .optionsfield {
+  display: none;
+}
+.requestmanage-filtercontainer .dropdownshown {
+  display: inline-block;
+  width: 100%;
+  max-height: 124px;
+  height: 124px;
+  border: 1px solid #e4e4dc;
+  border-radius: 8px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.requestmanage-filtercontainer .dropdownshown::-webkit-scrollbar {
+  display: none;
+}
+.requestmanage-filtercontainer .selected-options {
+  margin-top: 20px;
+  display: flex;
+  max-width: 97%;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.requestmanage-filtercontainer .selected-options::-webkit-scrollbar {
+  display: none;
+}
+.requestmanage-filtercontainer .custom-wrapper {
+  padding: 0px 25px 0px 0px;
+}
+.requestmanage-filtercontainer .header h5 {
+  font-size: 15px;
+  color: black;
+  padding: 20px 0;
+}
+.requestmanage-filtercontainer .price-input-container {
+  width: 100%;
+}
+.requestmanage-filtercontainer .price-input .price-field {
+  display: flex;
+  margin-bottom: 22px;
+}
+.requestmanage-filtercontainer .price-field span {
+  margin-right: 10px;
+  margin-top: 6px;
+  font-size: 17px;
+}
+.requestmanage-filtercontainer .price-field input {
+  height: 35px;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid #aca9a9;
+}
+.requestmanage-filtercontainer .price-input {
+  width: 100%;
+  font-size: 19px;
+  color: #555;
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.requestmanage-filtercontainer .slider-container {
+  border: 1px solid #aca9a9;
+  border-radius: 20px;
+  width: 100%;
+  height: 10px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.requestmanage-filtercontainer .slider-container .price-slider {
+  height: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background: #8bb8aa;
+  left: 0%;
+  right: 0%;
+}
+.requestmanage-filtercontainer .range-input {
+  position: relative;
+}
+.requestmanage-filtercontainer .range-input input[type=range] {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: none;
+  top: -37px;
+  pointer-events: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.requestmanage-filtercontainer input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 70%;
+  background: #555;
+  pointer-events: auto;
+}
+.requestmanage-filtercontainer input[type=range]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 70%;
+  background: #555;
+  pointer-events: auto;
+}
+.requestmanage-filtercontainer .range-input input.max-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8bb8aa;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+}
+.requestmanage-filtercontainer .range-input input.max-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8bb8aa;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(250, 249, 249, 0.3);
+}
+.requestmanage-filtercontainer .range-input input.min-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.requestmanage-filtercontainer .range-input input.min-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(250, 249, 249, 0.3);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+.requestmanage-filtercontainer .price-field {
+  display: block !important;
+}
+.requestmanage-filtercontainer input::-webkit-outer-spin-button,
+.requestmanage-filtercontainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.requestmanage-filtercontainer input[type=number] {
+  -moz-appearance: textfield;
+}
+.requestmanage-filtercontainer textarea:focus,
+.requestmanage-filtercontainer input:focus {
+  outline: none;
+}
+.requestmanage-filtercontainer .inputLable {
+  font-size: 14px;
+  color: #aca9a9;
+}
+
+.requestmanage-containerarea .requestmanage-modalconatiner {
+  max-width: 872px !important;
+  width: 100% !important;
+  min-height: 672px !important;
+  height: 672px !important;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .modal-content {
+  height: 100%;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .modal-content .modal-header {
+  height: 61px;
+  background-color: #e4e4dc;
+  font-weight: 700;
+  font-size: 16px;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .modal-content .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .modal-content .modal-footer .filterbutton {
+  width: 175px;
+  height: 42px;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .table-container {
+  overflow-x: auto;
+  height: 470px;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .table-container .custom-table {
+  height: 100%;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .table-container .custom-table th:nth-child(-n+5) {
+  background-color: #f8fafc;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .table-container .custom-table td:nth-child(-n+5) {
+  background-color: #f8fafc;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .custom-table th {
+  border-bottom: 2px solid #dee2e6;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .custom-table td {
+  border: none;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .input-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .input-container .requestmanage-editpriceinput {
+  width: 144px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #e4e4dc;
+  border: 1px solid #8d8d87;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .input-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.requestmanage-containerarea .requestmanage-modalconatiner .input-container label span {
+  color: #b3716e;
+}
+
+.requestmanage-containerarea .notifytime {
+  height: 18px;
+  width: 18px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 5px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer {
+  max-width: 872px !important;
+  width: 100% !important;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content {
+  min-height: 567px !important;
+  height: 567px !important;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-header {
+  height: 61px;
+  background-color: #e4e4dc;
+  font-weight: 700;
+  font-size: 16px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .remarkscontainer {
+  height: 150px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .remarkscontainer div {
+  height: 100%;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .confirmaccess .form-check-input:checked {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .confirmaccess .form-check-input:focus {
+  box-shadow: none;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .removebuyer-inputfield {
+  height: 90px;
+  margin-bottom: 10px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .removebuyer-inputfield .form-control {
+  height: 51px;
+  background-color: #e4e4dc;
+  border-radius: 12px;
+  color: #8d8d87;
+  font-size: 16px;
+  font-weight: 400;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .removebuyer-inputfield .salesagent {
+  height: 54px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-body .removebuyer-inputfield .buyerremarks {
+  height: 113px;
+  background-color: white !important;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-footer {
+  border-top: none;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .modal-content .modal-footer .filterbutton {
+  width: 175px;
+  height: 42px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .table-container {
+  overflow-x: auto;
+  height: 470px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .table-container .custom-table {
+  height: 100%;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .table-container .custom-table th:nth-child(-n+5) {
+  background-color: #f8fafc;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .table-container .custom-table td:nth-child(-n+5) {
+  background-color: #f8fafc;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .custom-table th {
+  border-bottom: 2px solid #dee2e6;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .custom-table td {
+  border: none;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .input-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .input-container .requestmanage-editpriceinput {
+  width: 144px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #e4e4dc;
+  border: 1px solid #8d8d87;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .input-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.requestmanage-containerarea .requestmanage-removebuyer .input-container label span {
+  color: #b3716e;
+}
+
+.requestmanage-containerarea .custom-checkbox input[type=checkbox]:checked {
+  background-color: black;
+  border-color: black;
+}
+.requestmanage-containerarea .request-management-owner {
+  max-width: 786px !important;
+  width: 100% !important;
+}
+.requestmanage-containerarea .request-management-owner .modal-content {
+  min-height: 664px !important;
+  height: auto;
+}
+.requestmanage-containerarea .request-management-owner .modal-body {
+  padding: 15px 32px !important;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-header {
+  height: 61px;
+  background-color: #e4e4dc;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-header .request-management-owner-infoCircle {
+  width: 16px;
+  height: 16px;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-header .request-management-owner-header-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields {
+  min-height: 458px;
+  max-width: 716px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields .salesagent-remarks {
+  height: 86px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields .ownershipremarks {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields .request-management-ownership-inputFields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields .request-management-ownership-inputFields .form-group {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.requestmanage-containerarea .request-management-owner .request-management-owner-inputFields .owner-inputField {
+  height: 51px;
+  max-width: 350px;
+  background-color: #e4e4dc;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid gray;
+}
+.requestmanage-containerarea .request-management-owner .required {
+  color: red;
+}
+.requestmanage-containerarea .request-management-owner .request-managementAgentRemark-inputField {
+  width: 100%;
+  height: 54px;
+  border: 1px solid gray;
+  background-color: #e4e4dc;
+  border-radius: 12px;
+}
+.requestmanage-containerarea .request-management-owner .request-managementRemark-inputField {
+  height: 113px;
+  width: 100%;
+}
+.requestmanage-containerarea .request-management-owner .owner-custom-checkbox {
+  max-width: 716px;
+  padding-top: 10px;
+}
+.requestmanage-containerarea .request-management-owner .owner-custom-checkbox input[type=checkbox]:checked {
+  background-color: black;
+  border-color: black;
+}
+.requestmanage-containerarea .request-management-owner .owner-request-management-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  padding-top: 20px;
+  max-width: 716px;
+}
+.requestmanage-containerarea .request-management-owner .owner-request-management-rejectBtn {
+  width: 170px;
+  height: 42px;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+.requestmanage-containerarea .request-management-owner .owner-request-management-approveBtn {
+  width: 170px;
+  height: 42px;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+.requestmanage-containerarea .request-management-owner-modal-dialog-centered {
+  display: flex;
+  justify-content: center;
+}
+
+.requestmanage-containerarea .splitbuyer-modalconatiner {
+  max-width: 786px !important;
+  width: 100% !important;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .modal-content {
+  min-height: 624px !important;
+  height: auto !important;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content {
+  height: 100%;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .splitbuyer-modal-header {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background-color: #e4e4dc;
+  height: 61px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .splitbuyer-modal-header .buyer-header-image {
+  width: 18px !important;
+  height: 18px !important;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .splitbuyer-modal-header .buyer-header-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .checkBox-header {
+  font-size: 16px;
+  font-weight: 800;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .checkBox-header .required {
+  color: red;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .buyer-checkBoxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .form-check {
+  width: 350px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .form-check input[type=checkbox]:checked {
+  background-color: #8d8d87;
+  border-color: #8d8d87;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .agentRemark-inputField {
+  height: 54px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 12px;
+  background-color: #fafaf8;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .agentRemark-form-label {
+  font-weight: 700;
+  font-size: 16px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .remarkFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .remark-inputField {
+  height: 113px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .buyer-agree-check input[type=checkbox]:checked {
+  background-color: black;
+  border-color: black;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .modal-footer {
+  border-top: none !important;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .buyer-request-management-rejectBtn {
+  height: 42px;
+  width: 169px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.requestmanage-containerarea .splitbuyer-modalconatiner .splitbuyer-modal-content .buyer-request-management-approveBtn {
+  height: 42px;
+  width: 169px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.requestmanage-containerarea .addbuyer-modalconatiner {
+  max-width: 786px !important;
+  width: 100% !important;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .modal-content {
+  min-height: 584px !important;
+  height: auto !important;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content {
+  height: 100%;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-header {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background-color: #e4e4dc;
+  height: 61px;
+  align-items: center;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-header .addbuyer-image {
+  height: 18px;
+  width: 18px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-header .addbuyer-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields {
+  display: flex;
+  justify-content: space-around;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .required {
+  color: #a85b57;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .addbuyer-lists {
+  width: 350px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .addbuyer-inputFields {
+  width: 350px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .addbuyer-inputFields .addbuyer-inputField {
+  height: 51px;
+  border: 1px solid gray;
+  background-color: #fafaf8;
+  border-radius: 12px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .list-header {
+  font-size: 16px;
+  font-weight: 800;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-fields .token-header {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-names {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .pt-16 {
+  padding-top: 16px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-lable {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .p-10 {
+  padding: 10px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-agree input[type=checkbox]:checked {
+  background-color: black;
+  border-color: black;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .remark-inputfield {
+  height: 54px;
+  border: 1px solid grey;
+  border-radius: 12px;
+  background-color: #fafaf8;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .remark-label {
+  font-size: 16px;
+  font-weight: 700;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
+  padding: 10px 10px 0px 0px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-rejectBtn {
+  height: 42px;
+  width: 169px;
+}
+.requestmanage-containerarea .addbuyer-modalconatiner .addbuyer-content .addbuyer-approveBtn {
+  height: 42px;
+  width: 169px;
+}/*# sourceMappingURL=requestmanagement.css.map */

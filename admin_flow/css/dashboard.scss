@@ -1,0 +1,537 @@
+@import "variables";
+
+.dashboard-management {
+
+  a.btn.btn-black {
+    background: #000;
+    color: #FFFFFF;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 500;
+    width: 218px;
+    border: 1px solid #000;
+    transition: all 0.4s ease-in-out;
+  }
+
+
+  .dashboard-card {
+
+    .roomtype-datacontainer {
+      position: absolute;
+      left: 50%;
+      bottom: -7%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+
+      .graphbox {
+        height: 15px;
+        width: 15px;
+      }
+    }
+
+    .card-body {
+      .customer-engagement {
+        border-bottom: 1px solid #ececec;
+        padding: 0 12px;
+
+        .title {
+          font-size: 16px;
+        }
+
+        .time {
+          font-size: 24px;
+          color: #000;
+        }
+      }
+
+      .payment-percentage {
+        .progress-bar {
+          float: left;
+          margin-right: 13px;
+          border-radius: 3px;
+          height: 15px;
+        }
+      }
+
+      .payment-methods {
+
+        .pos {
+
+          &::before {
+            content: "";
+            background-color: #C0CBCF;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            border-radius: 8px;
+            padding: 8px 15px;
+            right: 8px;
+            top: 3px;
+          }
+        }
+
+        .e-Services {
+
+          &::before {
+            content: "";
+            background-color: #302C6F;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            border-radius: 8px;
+            padding: 8px 15px;
+            right: 8px;
+            top: 3px;
+          }
+        }
+
+        .cheque {
+
+          &::before {
+            content: "";
+            background-color: #5872A7;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            border-radius: 8px;
+            padding: 8px 15px;
+            right: 8px;
+            top: 3px;
+          }
+        }
+
+        .quickPay {
+
+          &::before {
+            content: "";
+            background-color: #A8709F;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            border-radius: 8px;
+            padding: 8px 15px;
+            right: 8px;
+            top: 3px;
+          }
+        }
+      }
+
+      .chart-legendgender {
+
+        .chart-legendgender__female {
+
+          &::before {
+            content: "";
+            background-color: #5872A7;
+            margin-right: 5px;
+            height: 12px;
+            width: 12px;
+            display: inline-block;
+          }
+        }
+
+        .chart-legendgender__male {
+
+          &::before {
+            content: "";
+            background-color: #B3A7B5;
+            margin-right: 5px;
+            height: 12px;
+            width: 12px;
+            display: inline-block;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  // buyer range graph
+  .chart-container2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #buyerAgeRangeChart2 {
+    // width: 450px !important;
+    // height: 95% !important;
+  }
+
+  .chart-container {
+    height: 100%;
+  }
+
+  #myChart {
+    // height: 100% !important;
+  }
+
+  .chart-containersbar {
+    width: 20%;
+  }
+
+  .chart-legend {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0px 0px 0px;
+
+    .chartfemale-regionstatus {
+      background-color: #3e50b4;
+      padding: 5px;
+      margin-right: 5px;
+    }
+
+    .chartmale-regionstatus {
+      background-color: #b84e8e;
+      padding: 5px;
+      margin-right: 5px;
+    }
+
+    &.revenue-card {
+      display: inline-block;
+      padding: 0 36px;
+
+      .chart-roomtype {
+        padding: 5px;
+
+        .bedOne {
+          margin-right: 30px;
+
+          &::before {
+            content: "";
+            background-color: #5872a7;
+            margin-right: 5px;
+            height: 12px;
+            width: 12px;
+            display: inline-block;
+          }
+
+          .units {
+            margin-left: 30px;
+            color: #666666;
+          }
+        }
+
+        .bedTwo {
+          margin-right: 30px;
+
+          &::before {
+            content: "";
+            background-color: #302c6f;
+            margin-right: 5px;
+            height: 12px;
+            width: 12px;
+            display: inline-block;
+          }
+        }
+
+        .bedThree {
+          margin-right: 30px;
+
+          &::before {
+            content: "";
+            background-color: #83b8ad;
+            margin-right: 5px;
+            height: 12px;
+            width: 12px;
+            display: inline-block;
+          }
+        }
+
+        .units {
+          margin-left: 30px;
+          color: #666666;
+        }
+      }
+    }
+  }
+
+  #buyerGenderRatioChart {
+    width: 242px !important;
+    height: 242px !important;
+    margin: auto;
+  }
+}
+
+.agent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 216px;
+    box-shadow: 0px 19px 26px 0px rgba(0, 0, 0, 0.18);
+    z-index: 1;
+  }
+
+  .dropdown-content {
+    // display: block;
+    // display: flex;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    gap: 8px;
+    height: 319px;
+    border-radius: 8px;
+    margin-top: 4px;
+    justify-content: space-between;
+  }
+
+  .dropdown-content.show {
+    display: flex;
+  }
+
+  .dropdown-content input[type="radio"] {
+    margin: 5px;
+  }
+
+  .dropdown-content input[type="text"] {
+    // margin: 5px;
+    height: 38px;
+    width: 100%;
+    border: none;
+    /* <-- This thing here */
+    border: solid 1px #ccc;
+    border-radius: 10px;
+  }
+
+  .dropbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    height: 52px;
+    width: 212px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 5px 0px rgba(141, 141, 135, 0.3);
+    border: none !important;
+  }
+
+  .graphfilterbtn {
+    width: 100%;
+    height: 38px;
+    background-color: #000000;
+    color: #f9f9f9;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+  }
+
+  input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    accent-color: #000000;
+  }
+
+  .filterlabel-data {
+    min-height: 160px;
+    row-gap: 10px;
+    justify-content: flex-start;
+  }
+
+  #chart1 {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+  }
+
+  element {
+    display: block;
+    box-sizing: border-box;
+    height: 513.85px;
+    width: 514.567px;
+  }
+}
+
+.feedbackchart-container {
+  position: relative;
+}
+
+.customerfeedback-titlepie {
+  position: absolute;
+  left: 50%;
+  bottom: 34%;
+  transform: translate(-50%, -50%);
+  color: #6fa66f;
+
+  & span {
+    font-size: 28px;
+  }
+}
+
+.dash-newEventModal {
+  max-width: 806px !important;
+  width: 100% !important;
+  min-height: 585px !important;
+  height: auto !important;
+  border-radius: 8px;
+
+  .modal-body {
+    height: 585px;
+    display: flex !important;
+    gap: 25px;
+
+    .time-period {
+      width: 356px;
+
+      .time-header {
+        height: 46px;
+        background-color: rgba(228, 228, 220, 1);
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .time-radiogroups {
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        padding: 24px 10px 10px 10px;
+
+        .time-radio {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          padding: 0;
+        }
+      }
+
+      .date-submit {
+        padding: 10px;
+
+        .time-dates {
+          display: flex;
+          gap: 8px;
+        }
+
+        .from-date {
+          height: 42px;
+        }
+
+        .to-date {
+          height: 42px;
+          width: 172px;
+        }
+
+        .select-btn {
+          height: 47px;
+        }
+
+        .btn-outline-secondary {
+          width: 100%;
+          border: 1px solid #e7e7e7 !important;
+        }
+      }
+    }
+
+    .divider {
+      border: 1px solid rgba(228, 228, 220, 1);
+      height: 424px;
+    }
+
+    .events {
+      width: 356px;
+
+      .events-header {
+        height: 46px;
+        background-color: rgba(228, 228, 220, 1);
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .event-fields {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 10px 10px 10px;
+        gap: 24px;
+
+        .event-field {
+          display: flex;
+          justify-content: space-between;
+          height: 40px;
+          align-items: center;
+        }
+
+        .search {
+          height: 44px;
+          padding: 12px 12px 12px 40px;
+          width: 100%;
+          border-radius: 4px;
+          border: 1px solid rgb(230, 227, 227);
+        }
+
+        .event-end {
+          height: 25px;
+          width: 97px;
+          border-radius: 4px;
+          background-color: rgba(97, 51, 77, 1);
+          text-align: center;
+          color: white;
+        }
+
+        .event-live {
+          height: 25px;
+          width: 42px;
+          border-radius: 4px;
+          background-color: rgba(111, 166, 111, 1);
+          text-align: center;
+          color: white;
+        }
+
+        .event-liveDiv {
+          width: 97px;
+        }
+      }
+    }
+  }
+
+  .footer-button {
+    display: flex;
+    justify-content: end;
+    padding-top: 24px;
+
+    .button {
+      width: 193px;
+      height: 56px;
+      border-radius: 8px;
+    }
+  }
+
+  .search-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .search {
+    width: 100%;
+    padding-left: 30px;
+    box-sizing: border-box;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+  }
+
+}

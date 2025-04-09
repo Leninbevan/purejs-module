@@ -1,0 +1,51 @@
+$font-regular: 'bliss_proregular', sans-serif;
+$font-medium: 'bliss_medium', sans-serif;
+$font-light: 'bliss_light', sans-serif;
+$primary-color: #fff;
+
+$spacing: 2rem;
+
+// Background Colors
+$black: #000;
+$dark-grey: #999;
+$light-grey: #E1E1E1;
+$pearl-white: #E4E4DC;
+$off-white: #F7F6F5;
+$light-green: #8bb8aa;
+$bg-chatelle : #B3A7B5;
+$bg-indigo : #EEF2FF; 
+$light-pink: #FEF2F2;
+
+
+//text-color
+$color-sand-brown: #a79f92; 
+$color-stone-gray : #8D8D87;
+$stone-gray-dark : #645F58; 
+$chaf-grey: #1C190E;
+$BlueGray: #1E293B;
+$color-white: #fff;
+
+//button color
+$btn-progress: #5872A7;
+$btn-called: #463452;
+$btn-noshow: #C0CBCF;
+$btn-onhold: #FDB623;
+$btn-checked-in:#8BB8AA;
+$btn-lost:#61334D;
+$btn-won:#302C6F;
+$btn-booked: #3B82F6;
+$btn-sold: #A79F92;
+$btn-available : #6FA66F;
+$btn-reserved: #B3A7B5;
+$btn-unit-type : #FFD3D3;
+$btn-blocked : #284047;
+
+//media query breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);

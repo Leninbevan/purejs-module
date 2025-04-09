@@ -1,0 +1,417 @@
+.dashboard-management a.btn.btn-black {
+  background: #000;
+  color: #FFFFFF;
+  font-size: 1em;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-weight: 500;
+  width: 218px;
+  border: 1px solid #000;
+  transition: all 0.4s ease-in-out;
+}
+.dashboard-management .dashboard-card .roomtype-datacontainer {
+  position: absolute;
+  left: 50%;
+  bottom: -7%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+.dashboard-management .dashboard-card .roomtype-datacontainer .graphbox {
+  height: 15px;
+  width: 15px;
+}
+.dashboard-management .dashboard-card .card-body .customer-engagement {
+  border-bottom: 1px solid #ececec;
+  padding: 0 12px;
+}
+.dashboard-management .dashboard-card .card-body .customer-engagement .title {
+  font-size: 16px;
+}
+.dashboard-management .dashboard-card .card-body .customer-engagement .time {
+  font-size: 24px;
+  color: #000;
+}
+.dashboard-management .dashboard-card .card-body .payment-percentage .progress-bar {
+  float: left;
+  margin-right: 13px;
+  border-radius: 3px;
+  height: 15px;
+}
+.dashboard-management .dashboard-card .card-body .payment-methods .pos::before {
+  content: "";
+  background-color: #C0CBCF;
+  position: relative;
+  border-radius: 3px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 15px;
+  right: 8px;
+  top: 3px;
+}
+.dashboard-management .dashboard-card .card-body .payment-methods .e-Services::before {
+  content: "";
+  background-color: #302C6F;
+  position: relative;
+  border-radius: 3px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 15px;
+  right: 8px;
+  top: 3px;
+}
+.dashboard-management .dashboard-card .card-body .payment-methods .cheque::before {
+  content: "";
+  background-color: #5872A7;
+  position: relative;
+  border-radius: 3px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 15px;
+  right: 8px;
+  top: 3px;
+}
+.dashboard-management .dashboard-card .card-body .payment-methods .quickPay::before {
+  content: "";
+  background-color: #A8709F;
+  position: relative;
+  border-radius: 3px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 15px;
+  right: 8px;
+  top: 3px;
+}
+.dashboard-management .dashboard-card .card-body .chart-legendgender .chart-legendgender__female::before {
+  content: "";
+  background-color: #5872A7;
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+}
+.dashboard-management .dashboard-card .card-body .chart-legendgender .chart-legendgender__male::before {
+  content: "";
+  background-color: #B3A7B5;
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+}
+.dashboard-management .chart-container2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-management .chart-container {
+  height: 100%;
+}
+.dashboard-management .chart-containersbar {
+  width: 20%;
+}
+.dashboard-management .chart-legend {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px 0px 0px;
+}
+.dashboard-management .chart-legend .chartfemale-regionstatus {
+  background-color: #3e50b4;
+  padding: 5px;
+  margin-right: 5px;
+}
+.dashboard-management .chart-legend .chartmale-regionstatus {
+  background-color: #b84e8e;
+  padding: 5px;
+  margin-right: 5px;
+}
+.dashboard-management .chart-legend.revenue-card {
+  display: inline-block;
+  padding: 0 36px;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype {
+  padding: 5px;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedOne {
+  margin-right: 30px;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedOne::before {
+  content: "";
+  background-color: #5872a7;
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedOne .units {
+  margin-left: 30px;
+  color: #666666;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedTwo {
+  margin-right: 30px;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedTwo::before {
+  content: "";
+  background-color: #302c6f;
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedThree {
+  margin-right: 30px;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .bedThree::before {
+  content: "";
+  background-color: #83b8ad;
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+}
+.dashboard-management .chart-legend.revenue-card .chart-roomtype .units {
+  margin-left: 30px;
+  color: #666666;
+}
+.dashboard-management #buyerGenderRatioChart {
+  width: 242px !important;
+  height: 242px !important;
+  margin: auto;
+}
+
+.agent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.agent-header .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.agent-header .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 216px;
+  box-shadow: 0px 19px 26px 0px rgba(0, 0, 0, 0.18);
+  z-index: 1;
+}
+.agent-header .dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  gap: 8px;
+  height: 319px;
+  border-radius: 8px;
+  margin-top: 4px;
+  justify-content: space-between;
+}
+.agent-header .dropdown-content.show {
+  display: flex;
+}
+.agent-header .dropdown-content input[type=radio] {
+  margin: 5px;
+}
+.agent-header .dropdown-content input[type=text] {
+  height: 38px;
+  width: 100%;
+  border: none;
+  /* <-- This thing here */
+  border: solid 1px #ccc;
+  border-radius: 10px;
+}
+.agent-header .dropbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  height: 52px;
+  width: 212px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 5px 0px rgba(141, 141, 135, 0.3);
+  border: none !important;
+}
+.agent-header .graphfilterbtn {
+  width: 100%;
+  height: 38px;
+  background-color: #000000;
+  color: #f9f9f9;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+}
+.agent-header input[type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+  accent-color: #000000;
+}
+.agent-header .filterlabel-data {
+  min-height: 160px;
+  row-gap: 10px;
+  justify-content: flex-start;
+}
+.agent-header #chart1 {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+.agent-header element {
+  display: block;
+  box-sizing: border-box;
+  height: 513.85px;
+  width: 514.567px;
+}
+
+.feedbackchart-container {
+  position: relative;
+}
+
+.customerfeedback-titlepie {
+  position: absolute;
+  left: 50%;
+  bottom: 34%;
+  transform: translate(-50%, -50%);
+  color: #6fa66f;
+}
+.customerfeedback-titlepie span {
+  font-size: 28px;
+}
+
+.dash-newEventModal {
+  max-width: 806px !important;
+  width: 100% !important;
+  min-height: 585px !important;
+  height: auto !important;
+  border-radius: 8px;
+}
+.dash-newEventModal .modal-body {
+  height: 585px;
+  display: flex !important;
+  gap: 25px;
+}
+.dash-newEventModal .modal-body .time-period {
+  width: 356px;
+}
+.dash-newEventModal .modal-body .time-period .time-header {
+  height: 46px;
+  background-color: rgb(228, 228, 220);
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.dash-newEventModal .modal-body .time-period .time-radiogroups {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  padding: 24px 10px 10px 10px;
+}
+.dash-newEventModal .modal-body .time-period .time-radiogroups .time-radio {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0;
+}
+.dash-newEventModal .modal-body .time-period .date-submit {
+  padding: 10px;
+}
+.dash-newEventModal .modal-body .time-period .date-submit .time-dates {
+  display: flex;
+  gap: 8px;
+}
+.dash-newEventModal .modal-body .time-period .date-submit .from-date {
+  height: 42px;
+}
+.dash-newEventModal .modal-body .time-period .date-submit .to-date {
+  height: 42px;
+  width: 172px;
+}
+.dash-newEventModal .modal-body .time-period .date-submit .select-btn {
+  height: 47px;
+}
+.dash-newEventModal .modal-body .time-period .date-submit .btn-outline-secondary {
+  width: 100%;
+  border: 1px solid #e7e7e7 !important;
+}
+.dash-newEventModal .modal-body .divider {
+  border: 1px solid rgb(228, 228, 220);
+  height: 424px;
+}
+.dash-newEventModal .modal-body .events {
+  width: 356px;
+}
+.dash-newEventModal .modal-body .events .events-header {
+  height: 46px;
+  background-color: rgb(228, 228, 220);
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.dash-newEventModal .modal-body .events .event-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 10px 10px 10px;
+  gap: 24px;
+}
+.dash-newEventModal .modal-body .events .event-fields .event-field {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+}
+.dash-newEventModal .modal-body .events .event-fields .search {
+  height: 44px;
+  padding: 12px 12px 12px 40px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgb(230, 227, 227);
+}
+.dash-newEventModal .modal-body .events .event-fields .event-end {
+  height: 25px;
+  width: 97px;
+  border-radius: 4px;
+  background-color: rgb(97, 51, 77);
+  text-align: center;
+  color: white;
+}
+.dash-newEventModal .modal-body .events .event-fields .event-live {
+  height: 25px;
+  width: 42px;
+  border-radius: 4px;
+  background-color: rgb(111, 166, 111);
+  text-align: center;
+  color: white;
+}
+.dash-newEventModal .modal-body .events .event-fields .event-liveDiv {
+  width: 97px;
+}
+.dash-newEventModal .footer-button {
+  display: flex;
+  justify-content: end;
+  padding-top: 24px;
+}
+.dash-newEventModal .footer-button .button {
+  width: 193px;
+  height: 56px;
+  border-radius: 8px;
+}
+.dash-newEventModal .search-container {
+  position: relative;
+  display: inline-block;
+}
+.dash-newEventModal .search {
+  width: 100%;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.dash-newEventModal .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+}/*# sourceMappingURL=dashboard.css.map */
